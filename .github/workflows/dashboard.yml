@@ -1,0 +1,35 @@
+# Codzienny dashboard: statystyki ruchu (GoatCounter) + stan bazy danych.
+# Wynik: docs/DASHBOARD.md — czytelny z aplikacji GitHub na telefonie.
+# Opcjonalne sekrety: GOATCOUNTER_TOKEN (Settings → Secrets → Actions).
+
+name: Daily Dashboard
+
+on:
+  schedule:
+    - cron: "45 4 * * *" # codziennie 04:45 UTC, po przebiegu agenta
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Zaktualizuj dashboard
+        env:
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+        run: node scripts/update-dashboard.mjs
+      - name: Commit i push
+        run: |
+          git config user.name "gdzietarg-bot"
+          git config user.email "actions@github.com"
+          git add docs/DASHBOARD.md
+          git diff --cached --quiet || git commit -m "dashboard: aktualizacja $(date -u +%F)"
+          git push

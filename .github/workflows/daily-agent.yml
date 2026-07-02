@@ -1,0 +1,48 @@
+# Codzienny agent AI — serce "projektu, który żyje sam".
+# Wymaga sekretu ANTHROPIC_API_KEY (Settings → Secrets → Actions).
+# Bez sekretu workflow kończy się cicho — nic się nie psuje.
+
+name: Daily Agent (aktualizacja danych)
+
+on:
+  schedule:
+    - cron: "15 4 * * *" # codziennie 04:15 UTC (~06:15 w Polsce)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    env:
+      HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    steps:
+      - name: Brak klucza API — pomiń
+        if: env.HAS_KEY != 'true'
+        run: echo "Sekret ANTHROPIC_API_KEY nie jest ustawiony. Dodaj go, aby uruchomić agenta."
+
+      - uses: actions/checkout@v4
+        if: env.HAS_KEY == 'true'
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        if: env.HAS_KEY == 'true'
+        with:
+          node-version: 20
+
+      - name: Uruchom agenta Claude
+        if: env.HAS_KEY == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Przeczytaj plik prompts/daily-update.md i wykonaj dokładnie opisane tam zadanie.
+            Dziś jest ${{ github.event.repository.updated_at }}. Pracujesz na gałęzi main.
+          claude_args: "--max-turns 60"
