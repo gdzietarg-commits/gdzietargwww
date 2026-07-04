@@ -48,7 +48,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install -g @google/gemini-cli
-          gemini --yolo -m gemini-3.1-flash-lite -p "Przeczytaj plik prompts/daily-update.md i wykonaj opisane tam zadanie. WAŻNE ODSTĘPSTWO: nie wykonuj kroku commit/push — commit zrobi za Ciebie workflow. Twoja praca kończy się na edycji data/markets.json i obsłudze issues (gh issue). Dziś jest $(date -u +%F)." || echo "Agent zakończył z błędem — sprawdzam, czy zostawił sensowne zmiany."
+          gemini --yolo -m gemini-3.5-flash -p "Przeczytaj plik prompts/daily-update.md i wykonaj opisane tam zadanie. WAŻNE ODSTĘPSTWO: nie wykonuj kroku commit/push — commit zrobi za Ciebie workflow. Twoja praca kończy się na edycji data/markets.json i obsłudze issues (gh issue). Dziś jest $(date -u +%F)." || echo "Agent zakończył z błędem — sprawdzam, czy zostawił sensowne zmiany."
 
       - name: Walidacja i commit (tylko data/markets.json)
         if: env.HAS_GEMINI == 'true' && (env.HAS_ANTHROPIC != 'true' || github.event_name == 'workflow_dispatch')
