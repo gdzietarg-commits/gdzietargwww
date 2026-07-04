@@ -45,6 +45,7 @@ jobs:
         if: env.HAS_GEMINI == 'true' && (env.HAS_ANTHROPIC != 'true' || github.event_name == 'workflow_dispatch')
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_CLI_TRUST_WORKSPACE: "true"
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install -g @google/gemini-cli
