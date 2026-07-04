@@ -31,10 +31,13 @@ Projekt zaprojektowany tak, aby **żył własnym życiem** i dał się w całoś
 
 ## ✅ Checklista uruchomienia (raz, ~20 minut, da się z telefonu)
 
-1. **Zmerguj tę gałąź do `main`** (zakładka Pull requests).
-2. **Włącz GitHub Pages**: Settings → Pages → Source: **GitHub Actions**.
-3. **Uruchom deploy**: Actions → „Build & Deploy" → Run workflow. Strona wstanie pod
-   `https://gdzietarg-commits.github.io/gdzietargwww`.
+1. ~~Zmerguj do main~~ ✅ zrobione.
+2. ~~Włącz GitHub Pages~~ ✅ zrobione (adres zapasowy: `https://gdzietarg-commits.github.io/gdzietargwww`).
+3. **Hosting www.gdzietarg.pl (FTP)**: dodaj sekrety w Settings → Secrets and variables →
+   Actions: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`. Jeśli pliki domeny leżą
+   w podkatalogu konta FTP (np. `public_html/`), dodaj też **zmienną** (zakładka
+   Variables) `FTP_SERVER_DIR` z tą ścieżką. Po dodaniu: Actions → „Build & Deploy" →
+   Run workflow.
 4. **Analityka**: załóż darmowe konto na [goatcounter.com](https://www.goatcounter.com)
    z kodem `gdzietarg` (musi się zgadzać z `data/config.json` → `goatcounter`).
    Potem: GoatCounter → Settings → API → nowy token → dodaj w repo sekret
