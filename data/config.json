@@ -4,7 +4,7 @@
   "siteUrl": "https://www.gdzietarg.pl",
   "region": "Warszawa Zachód: Pruszków, Piastów, Stare Babice i okolice",
   "goatcounter": "gdzietarg",
-  "newsletterAction": "",
+  "newsletterAction": "https://buttondown.com/api/emails/embed-subscribe/gdzietarg",
   "githubRepo": "gdzietarg-commits/gdzietargwww",
   "contactEmail": "robertrobert17@gmail.com"
 }
