@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-02",
+  "updated": "2026-07-04",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -68,48 +68,52 @@
       "id": "ryneczek-po-sasiedzku-hornowek",
       "name": "Ryneczek po Sąsiedzku w Hornówku",
       "city": "Hornówek (gm. Stare Babice)",
-      "address": "do ustalenia",
-      "website": "",
+      "address": "ul. 3 Maja 47",
+      "website": "https://www.facebook.com/ryneczekposasiedzku",
       "days": [
         "so"
       ],
-      "hours": "",
-      "verified": false,
-      "source": "Wzmianki lokalne",
-      "note": "Inicjatywa sąsiedzka — dni i godziny do potwierdzenia.",
-      "updated": "2026-07-02"
+      "hours": "8:00–14:00",
+      "verified": true,
+      "source": "Strona na Facebooku / Gmina Izabelin",
+      "note": "Inicjatywa sąsiedzka z bogatą ofertą lokalnych wystawców, zdrowej żywności i rękodzieła. Miejsce spotkań społeczności.",
+      "updated": "2026-07-04"
     },
     {
       "id": "targowisko-ozarow-mazowiecki",
       "name": "Targowisko Miejskie w Ożarowie Mazowieckim",
       "city": "Ożarów Mazowiecki",
-      "address": "do ustalenia",
-      "website": "",
+      "address": "ul. Strażacka 7",
+      "website": "https://zuk.ozarow-mazowiecki.pl",
       "days": [
-        "sr",
+        "pt",
         "so"
       ],
-      "hours": "",
-      "verified": false,
-      "source": "Do weryfikacji (BIP / strona UM)",
-      "note": "Dni handlowe orientacyjne — wymagają potwierdzenia.",
-      "updated": "2026-07-02"
+      "hours": "9:00–19:00 (pt), 9:00–15:00 (so)",
+      "verified": true,
+      "source": "Zakład Usług Komunalnych w Ożarowie Mazowieckim",
+      "note": "Główne dni handlowe to piątek i sobota. Zarządzane przez lokalny ZUK.",
+      "updated": "2026-07-04"
     },
     {
       "id": "targowisko-blonie",
       "name": "Targowisko Miejskie w Błoniu",
       "city": "Błonie",
-      "address": "do ustalenia",
-      "website": "",
+      "address": "ul. Targowa 3",
+      "website": "https://blonie.pl",
       "days": [
+        "pn",
+        "wt",
+        "sr",
         "cz",
+        "pt",
         "so"
       ],
-      "hours": "",
-      "verified": false,
-      "source": "Do weryfikacji (BIP / strona UM)",
-      "note": "Dni handlowe orientacyjne — wymagają potwierdzenia.",
-      "updated": "2026-07-02"
+      "hours": "6:00–14:00",
+      "verified": true,
+      "source": "Oficjalna strona Gminy Błonie / ZUK Błonie",
+      "note": "Zmodernizowane, wielofunkcyjne targowisko miejskie z pawilonami i płytą otwartą. W każdą drugą niedzielę miesiąca odbywa się tu Targ Staroci.",
+      "updated": "2026-07-04"
     },
     {
       "id": "targowisko-grodzisk-mazowiecki",
@@ -199,6 +203,26 @@
       "source": "Do weryfikacji",
       "note": "Dni handlowe orientacyjne — wymagają potwierdzenia.",
       "updated": "2026-07-02"
+    },
+    {
+      "id": "targowisko-miejskie-milanowek",
+      "name": "Targowisko Miejskie w Milanówku",
+      "city": "Milanówek",
+      "address": "ul. Józefa Piłsudskiego 14",
+      "website": "https://milanowek.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so"
+      ],
+      "hours": "6:00–18:00 (pn–pt), 5:00–14:00 (so)",
+      "verified": true,
+      "source": "Regulamin Targowiska Miejskiego w Milanówku",
+      "note": "Czynne od poniedziałku do soboty, z największym ruchem w soboty. W wybrane niedziele odbywa się tu Wyprzedaż Garażowa i Targ Staroci.",
+      "updated": "2026-07-04"
     }
   ]
 }
