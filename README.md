@@ -42,9 +42,13 @@ Projekt zaprojektowany tak, aby **żył własnym życiem** i dał się w całoś
    z kodem `gdzietarg` (musi się zgadzać z `data/config.json` → `goatcounter`).
    Potem: GoatCounter → Settings → API → nowy token → dodaj w repo sekret
    `GOATCOUNTER_TOKEN` (Settings → Secrets and variables → Actions).
-5. **Agent dzienny**: dodaj sekret `ANTHROPIC_API_KEY`
-   ([console.anthropic.com](https://console.anthropic.com) → API keys). Bez klucza
-   workflow po prostu się pomija — nic się nie psuje.
+5. **Agent dzienny** — do wyboru (wystarczy jeden):
+   - **Gemini (darmowy)**: klucz z [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+     → sekret `GEMINI_API_KEY`. Workflow „Daily Agent — Gemini".
+   - **Claude**: klucz z [console.anthropic.com](https://console.anthropic.com)
+     → sekret `ANTHROPIC_API_KEY`. Workflow „Daily Agent".
+   Jeśli dodasz oba klucze, w harmonogramie działa Claude, a Gemini tylko na żądanie.
+   Bez kluczy workflowy po prostu się pomijają — nic się nie psuje.
 6. **Newsletter (opcjonalnie)**: załóż konto [Buttondown](https://buttondown.com)
    (darmowe do 100 subskrybentów, obsługa z telefonu) i wpisz w `data/config.json`:
    `"newsletterAction": "https://buttondown.com/api/emails/embed-subscribe/TWOJA-NAZWA"`.
