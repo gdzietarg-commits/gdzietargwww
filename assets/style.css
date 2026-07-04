@@ -62,6 +62,24 @@ main { max-width: 1080px; margin: 0 auto; padding: 0 16px 48px; }
 }
 .day-tile.active, .day-tile:hover { background: var(--green-700); color: #fff; }
 
+.today-line {
+  margin: 12px 0 0; font-size: 15px; font-weight: 600; color: var(--green-700);
+}
+
+/* Sezonowy box */
+.season-box {
+  margin-top: 32px; padding: 20px 24px; text-align: center;
+  background: var(--green-100); border-radius: var(--radius);
+}
+.season-box h2 { color: var(--green-900); margin: 0 0 4px; font-size: 22px; }
+.season-month { font-weight: 400; color: var(--green-700); }
+.season-lead { margin: 0 0 12px; color: var(--ink-soft); font-size: 15px; }
+.season-chips { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.season-chip {
+  padding: 6px 14px; background: var(--card); border-radius: 999px;
+  font-size: 15px; color: var(--green-900); box-shadow: var(--shadow);
+}
+
 /* Karty */
 .grid {
   display: grid; gap: 16px; margin-top: 24px;
@@ -101,7 +119,20 @@ main { max-width: 1080px; margin: 0 auto; padding: 0 16px 48px; }
   background: var(--emerald); color: #fff; border: 0; border-radius: 10px;
 }
 .eko-btn:hover { background: var(--green-700); }
+.share-btn {
+  padding: 11px 16px; font-size: 15px; font-weight: 600; cursor: pointer;
+  background: var(--card); color: var(--green-900);
+  border: 1.5px solid var(--green-700); border-radius: 10px;
+}
+.share-btn:hover { background: var(--green-100); }
 .report-link { font-size: 14px; }
+
+/* Formularz eko z wyborem produktu */
+.eko-form select {
+  flex: 1 1 100%; padding: 12px 14px; font-size: 16px;
+  border: 1.5px solid var(--green-100); border-radius: 10px;
+  background: var(--bg); color: var(--ink);
+}
 
 .empty-msg { text-align: center; color: var(--ink-soft); padding: 32px 0; }
 

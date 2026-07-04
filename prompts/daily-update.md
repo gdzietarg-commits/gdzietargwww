@@ -29,6 +29,10 @@ datą `updated`. Dla każdego spróbuj znaleźć aktualne dni handlowe i godziny
   `verified: true`, wpisz `source` (nazwa źródła) i `updated` (dzisiejsza data).
 - Nie znalazłeś → zostaw `verified: false`, dopisz w `note` czego brakuje.
   NIE zgaduj dni ani godzin.
+- Przy okazji uzupełnij pole `website`, jeśli jest puste: wpisz adres OFICJALNEJ strony
+  targowiska, jego zarządcy albo dedykowanej podstrony urzędu miasta/gminy (ewentualnie
+  oficjalny fanpage targu na Facebooku). Wpisz URL tylko, jeśli sam go otworzyłeś
+  i potwierdza, że dotyczy tego targowiska — inaczej zostaw pusty string.
 
 ### 3. (Opcjonalnie) Poszerz bazę
 Jeśli kroki 1–2 zajęły mało czasu, poszukaj JEDNEGO nowego targowiska/bazarku w regionie

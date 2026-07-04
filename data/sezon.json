@@ -1,0 +1,14 @@
+{
+  "1": { "nazwa": "styczeń", "produkty": ["jabłka", "gruszki", "kapusta kiszona", "ogórki kiszone", "buraki", "marchew", "pietruszka", "por", "jarmuż", "miód", "orzechy"] },
+  "2": { "nazwa": "luty", "produkty": ["jabłka", "kapusta kiszona", "buraki", "marchew", "seler", "por", "cebula", "miód", "suszone grzyby"] },
+  "3": { "nazwa": "marzec", "produkty": ["rzodkiewka", "szczypiorek", "sałata", "jabłka", "buraki", "świeże jajka", "nowalijki"] },
+  "4": { "nazwa": "kwiecień", "produkty": ["rzodkiewka", "sałata", "szczypiorek", "botwinka", "szparagi", "nowalijki", "świeże jajka"] },
+  "5": { "nazwa": "maj", "produkty": ["szparagi", "botwinka", "truskawki", "rzodkiewka", "sałata", "koperek", "młoda kapusta"] },
+  "6": { "nazwa": "czerwiec", "produkty": ["truskawki", "czereśnie", "młode ziemniaki", "groszek cukrowy", "koperek", "ogórki gruntowe", "bób"] },
+  "7": { "nazwa": "lipiec", "produkty": ["maliny", "borówki", "porzeczki", "wiśnie", "młode ziemniaki", "ogórki gruntowe", "bób", "cukinia", "kalafior"] },
+  "8": { "nazwa": "sierpień", "produkty": ["pomidory gruntowe", "papryka", "śliwki", "jagody", "kukurydza", "ogórki do kiszenia", "fasolka szparagowa", "koper na zakwas"] },
+  "9": { "nazwa": "wrzesień", "produkty": ["śliwki węgierki", "jabłka", "gruszki", "pomidory", "papryka", "grzyby leśne", "winogrona", "dynia"] },
+  "10": { "nazwa": "październik", "produkty": ["jabłka", "gruszki", "dynia", "grzyby leśne", "orzechy włoskie", "kapusta na kiszenie", "śliwki"] },
+  "11": { "nazwa": "listopad", "produkty": ["jabłka", "gruszki", "dynia", "kapusta kiszona", "warzywa korzeniowe", "orzechy", "miód"] },
+  "12": { "nazwa": "grudzień", "produkty": ["jabłka", "kapusta kiszona", "warzywa korzeniowe", "mak", "miód", "orzechy", "suszone grzyby", "karp"] }
+}

@@ -10,7 +10,10 @@ const DIST = join(ROOT, "dist");
 
 const config = JSON.parse(readFileSync(join(ROOT, "data/config.json"), "utf8"));
 const db = JSON.parse(readFileSync(join(ROOT, "data/markets.json"), "utf8"));
+const sezon = JSON.parse(readFileSync(join(ROOT, "data/sezon.json"), "utf8"));
 const markets = db.markets;
+const month = new Date().getMonth() + 1;
+const sezonNow = sezon[String(month)];
 
 const DAY_LABELS = { pn: "Pon", wt: "Wt", sr: "Śr", cz: "Czw", pt: "Pt", so: "Sob", nd: "Ndz" };
 const DAY_FULL = { pn: "poniedziałek", wt: "wtorek", sr: "środa", cz: "czwartek", pt: "piątek", so: "sobota", nd: "niedziela" };
@@ -88,11 +91,25 @@ ${content}
 <div class="modal-backdrop" id="eko-modal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="eko-title">
     <button class="modal-close" aria-label="Zamknij">✕</button>
-    <h2 id="eko-title">🌿 Raport Eko-Weryfikacji</h2>
+    <h2 id="eko-title">🌿 Eko-Weryfikacja stoisk</h2>
     <p class="modal-market"></p>
-    <p>Właśnie przygotowujemy ten raport. <strong>Jedziemy do tego rolnika w przyszłym tygodniu!</strong>
-    Zostaw swój e-mail, a wyślemy Ci powiadomienie oraz kod rabatowy na pierwsze zakupy.</p>
-    <form class="email-form" data-kind="eko">
+    <p><strong>Co to jest?</strong> Jedziemy do gospodarstwa konkretnego sprzedawcy z tego targowiska
+    i sprawdzamy na miejscu, jak naprawdę powstaje jego produkt — czy kury biegają po trawie,
+    czy warzywa rosną w gruncie. Raport dotyczy zawsze <strong>konkretnego stoiska i produktu</strong>,
+    nie całego targowiska.</p>
+    <p>Pierwsze raporty przygotowujemy. Powiedz, co sprawdzić najpierw, a powiadomimy Cię,
+    gdy raport z tego targu będzie gotowy — dorzucimy też kod rabatowy na pierwsze zakupy.</p>
+    <form class="email-form eko-form" data-kind="eko">
+      <select name="produkt" aria-label="Co mamy zweryfikować najpierw?">
+        <option value="" disabled selected>Co sprawdzić najpierw?</option>
+        <option value="jajka">🥚 Jajka</option>
+        <option value="nabial">🧀 Nabiał i sery</option>
+        <option value="warzywa-owoce">🥕 Warzywa i owoce</option>
+        <option value="mieso-wedliny">🥩 Mięso i wędliny</option>
+        <option value="miod">🍯 Miód</option>
+        <option value="pieczywo">🍞 Pieczywo</option>
+        <option value="inne">🧺 Coś innego</option>
+      </select>
       <input type="email" name="email" placeholder="Twój e-mail" required aria-label="Adres e-mail">
       <button type="submit">Zapisz mnie</button>
     </form>
@@ -121,12 +138,12 @@ function marketCard(m) {
     <h3><a href="${slug}.html">${esc(m.name)}</a></h3>
     <span class="today-badge" hidden>Dziś otwarte</span>
   </div>
-  <p class="addr">📍 ${esc(m.address)}, ${esc(m.city)} · <a href="${mapsLink(m)}" rel="noopener" target="_blank">mapa</a></p>
+  <p class="addr">📍 ${esc(m.address)}, ${esc(m.city)} · <a href="${mapsLink(m)}" rel="noopener" target="_blank">mapa</a>${m.website ? ` · <a href="${esc(m.website)}" rel="noopener" target="_blank">strona targu</a>` : ""}</p>
   <p class="days-row">${dayChips(m.days)}</p>
   ${m.hours ? `<p class="hours">🕕 ${esc(m.hours)}</p>` : ""}
   <p class="status ${m.verified ? "ok" : "warn"}">${m.verified ? `✅ Dane zweryfikowane · ${esc(m.updated)}` : "⚠️ Dane do potwierdzenia"}</p>
   <div class="card-actions">
-    <button class="eko-btn" data-market="${esc(m.name)}" data-slug="${slug}">🌿 Zobacz raport Eko-Weryfikacji</button>
+    <button class="eko-btn" data-market="${esc(m.name)}" data-slug="${slug}">🌿 Eko-Weryfikacja stoisk i produktów</button>
   </div>
 </article>`;
 }
@@ -152,12 +169,18 @@ const indexContent = `
       <button class="day-tile" data-day="">Wszystkie</button>
       ${DAY_ORDER.map((d) => `<button class="day-tile" data-day="${d}">${DAY_LABELS[d]}</button>`).join("")}
     </div>
+    <p class="today-line" id="today-line" hidden></p>
   </div>
 </section>
 <section class="grid" id="grid">
   ${markets.map(marketCard).join("\n")}
 </section>
 <p class="empty-msg" id="empty" hidden>Brak wyników — spróbuj innego dnia lub miasta. Znasz targ, którego tu nie ma? <a href="https://github.com/${config.githubRepo}/issues/new?labels=dane">Daj znać!</a></p>
+<section class="season-box">
+  <h2>🍓 Co teraz smakuje najlepiej? <span class="season-month">(${sezonNow.nazwa})</span></h2>
+  <p class="season-lead">Sezonowe produkty, których warto teraz szukać na targu:</p>
+  <p class="season-chips">${sezonNow.produkty.map((p) => `<span class="season-chip">${esc(p)}</span>`).join("")}</p>
+</section>
 <section class="cities-index">
   <h2>Miasta i gminy</h2>
   <p>${cities.map((c) => `<a class="city-link" href="${slugify(c)}.html">${esc(c)}</a>`).join(" ")}</p>
@@ -201,12 +224,30 @@ for (const city of cities) {
 for (const m of markets) {
   const slug = m.id || slugify(m.name);
   const daysFull = m.days.map((d) => DAY_FULL[d]).join(", ");
+  const faqAnswer = m.days.length
+    ? `${m.name} działa w dni: ${daysFull}${m.hours ? `, w godzinach ${m.hours}` : ""}. Adres: ${m.address}, ${m.city}.`
+    : `Dni handlowe targowiska ${m.name} są w trakcie weryfikacji.`;
   const jsonld = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "Place",
-    name: m.name,
-    address: { "@type": "PostalAddress", streetAddress: m.address, addressLocality: m.city, addressCountry: "PL" },
-    ...(m.hours && { description: `Dni handlowe: ${daysFull}. Godziny: ${m.hours}.` }),
+    "@graph": [
+      {
+        "@type": "Place",
+        name: m.name,
+        ...(m.website && { url: m.website }),
+        address: { "@type": "PostalAddress", streetAddress: m.address, addressLocality: m.city, addressCountry: "PL" },
+        ...(m.hours && { description: `Dni handlowe: ${daysFull}. Godziny: ${m.hours}.` }),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: `Kiedy jest targ: ${m.name}?`,
+            acceptedAnswer: { "@type": "Answer", text: faqAnswer },
+          },
+        ],
+      },
+    ],
   });
   const content = `
 <nav class="crumbs"><a href="index.html">← Wszystkie</a> · <a href="${slugify(m.city)}.html">${esc(m.city)}</a></nav>
@@ -214,12 +255,14 @@ for (const m of markets) {
   <h1>${esc(m.name)}</h1>
   <p class="status ${m.verified ? "ok" : "warn"}">${m.verified ? `✅ Dane zweryfikowane · źródło: ${esc(m.source)} · ${esc(m.updated)}` : `⚠️ Dane do potwierdzenia · ${esc(m.source)}`}</p>
   <p class="addr">📍 ${esc(m.address)}, ${esc(m.city)} — <a href="${mapsLink(m)}" rel="noopener" target="_blank">pokaż na mapie</a></p>
+  ${m.website ? `<p class="addr">🔗 Oficjalna strona: <a href="${esc(m.website)}" rel="noopener" target="_blank">${esc(m.website.replace(/^https?:\/\//, ""))}</a></p>` : ""}
   <h2>Dni handlowe</h2>
   <p class="days-row big">${dayChips(m.days)}</p>
   <p><strong>${esc(daysFull) || "do ustalenia"}</strong>${m.hours ? `, w godzinach <strong>${esc(m.hours)}</strong>` : ""}</p>
   ${m.note ? `<p class="note">ℹ️ ${esc(m.note)}</p>` : ""}
   <div class="card-actions">
-    <button class="eko-btn" data-market="${esc(m.name)}" data-slug="${slug}">🌿 Zobacz raport Eko-Weryfikacji</button>
+    <button class="eko-btn" data-market="${esc(m.name)}" data-slug="${slug}">🌿 Eko-Weryfikacja stoisk i produktów</button>
+    <button class="share-btn" data-title="${esc(m.name)} — dni i godziny otwarcia" hidden>📤 Udostępnij (np. na grupie osiedlowej)</button>
     <a class="report-link" href="${issueLink(m)}" rel="noopener" target="_blank">✏️ Zgłoś poprawkę (byłeś tam? pomóż innym)</a>
   </div>
 </article>`;
@@ -244,10 +287,14 @@ const aboutContent = `
   <p><strong>${esc(config.siteName)}</strong> to prosta odpowiedź na proste pytanie: <em>„czy jutro jest targ i do której?"</em></p>
   <p>Zbieramy w jednym miejscu dni i godziny handlu lokalnych targowisk i bazarków — zaczynając od zachodnich okolic Warszawy.
   Dane pochodzą ze stron gmin, BIP-ów i zgłoszeń społeczności, a codziennie odświeża je automat.</p>
-  <h2>🌿 Eko-Weryfikacja</h2>
+  <h2>🌿 Eko-Weryfikacja — jak to działa?</h2>
   <p>Pracujemy nad czymś, czego nie ma nikt inny: <strong>fizyczną weryfikacją łańcucha dostaw</strong>.
-  Jedziemy do rolnika, sprawdzamy jak hoduje i uprawia, publikujemy raport. Bez deklaracji — dowody.
-  Chcesz wiedzieć, kiedy ruszamy? Zapisz się do newslettera poniżej.</p>
+  Ważne: raport dotyczy zawsze <strong>konkretnego stoiska i konkretnego produktu</strong> —
+  nie całego targowiska. Przykład: „Jajka pana Janka, stoisko nr 14, Targowisko Miejskie
+  w Pruszkowie" — jedziemy do jego gospodarstwa, sprawdzamy warunki hodowli i publikujemy
+  raport ze zdjęciami. Bez deklaracji — dowody.</p>
+  <p>Które stoiska sprawdzamy najpierw? Te, na które głosujecie w formularzach przy
+  targowiskach. Chcesz wiedzieć, kiedy ruszamy? Zapisz się do newslettera poniżej.</p>
   <h2>🤝 Pomóż nam</h2>
   <p>Byłeś na targu i coś się nie zgadza? Kliknij „Zgłoś poprawkę" przy targowisku. Każde zgłoszenie trafia do weryfikacji w ciągu 24 godzin.</p>
 </article>`;

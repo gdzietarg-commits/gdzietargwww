@@ -24,6 +24,7 @@ Strona statyczna generowana z JSON, hostowana na GitHub Pages, zasilana codzienn
   "name": "Pełna nazwa targowiska",
   "city": "Miasto",
   "address": "ulica i numer lub 'do ustalenia'",
+  "website": "https://oficjalna-strona-targu-lub-zarzadcy.pl lub pusty string",
   "days": ["pn","wt","sr","cz","pt","so","nd"],
   "hours": "6:00–13:00 lub pusty string",
   "verified": true,

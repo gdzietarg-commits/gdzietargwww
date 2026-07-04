@@ -6,7 +6,11 @@
       "name": "Targowisko Miejskie w Pruszkowie",
       "city": "Pruszków",
       "address": "ul. Komorowska 14",
-      "days": ["wt", "pt"],
+      "website": "",
+      "days": [
+        "wt",
+        "pt"
+      ],
       "hours": "6:00–13:30",
       "verified": true,
       "source": "Strona SZB Pruszków (targowiska miejskie)",
@@ -18,7 +22,11 @@
       "name": "Bazarek Żbików",
       "city": "Pruszków",
       "address": "ul. Pańska 11 (Żbików)",
-      "days": ["sr", "so"],
+      "website": "",
+      "days": [
+        "sr",
+        "so"
+      ],
       "hours": "6:00–13:00",
       "verified": true,
       "source": "Strona SZB Pruszków (targowiska miejskie)",
@@ -30,7 +38,11 @@
       "name": "Targowisko Miejskie w Piastowie",
       "city": "Piastów",
       "address": "okolice ul. ks. Piotra Skargi",
-      "days": ["sr", "so"],
+      "website": "",
+      "days": [
+        "sr",
+        "so"
+      ],
       "hours": "6:00–13:00",
       "verified": true,
       "source": "BIP Piastów (regulamin targowiska)",
@@ -42,7 +54,10 @@
       "name": "Targ na Rynku w Starych Babicach",
       "city": "Stare Babice",
       "address": "ul. Rynek 21 (przed Urzędem Gminy)",
-      "days": ["so"],
+      "website": "",
+      "days": [
+        "so"
+      ],
       "hours": "8:00–14:00",
       "verified": true,
       "source": "Strona Gminy Stare Babice",
@@ -54,7 +69,10 @@
       "name": "Ryneczek po Sąsiedzku w Hornówku",
       "city": "Hornówek (gm. Stare Babice)",
       "address": "do ustalenia",
-      "days": ["so"],
+      "website": "",
+      "days": [
+        "so"
+      ],
       "hours": "",
       "verified": false,
       "source": "Wzmianki lokalne",
@@ -66,7 +84,11 @@
       "name": "Targowisko Miejskie w Ożarowie Mazowieckim",
       "city": "Ożarów Mazowiecki",
       "address": "do ustalenia",
-      "days": ["sr", "so"],
+      "website": "",
+      "days": [
+        "sr",
+        "so"
+      ],
       "hours": "",
       "verified": false,
       "source": "Do weryfikacji (BIP / strona UM)",
@@ -78,7 +100,11 @@
       "name": "Targowisko Miejskie w Błoniu",
       "city": "Błonie",
       "address": "do ustalenia",
-      "days": ["cz", "so"],
+      "website": "",
+      "days": [
+        "cz",
+        "so"
+      ],
       "hours": "",
       "verified": false,
       "source": "Do weryfikacji (BIP / strona UM)",
@@ -90,7 +116,12 @@
       "name": "Targowisko Miejskie w Grodzisku Mazowieckim",
       "city": "Grodzisk Mazowiecki",
       "address": "do ustalenia",
-      "days": ["wt", "pt", "so"],
+      "website": "",
+      "days": [
+        "wt",
+        "pt",
+        "so"
+      ],
       "hours": "",
       "verified": false,
       "source": "Do weryfikacji (BIP / strona UM)",
@@ -102,7 +133,10 @@
       "name": "Targowisko w Nadarzynie",
       "city": "Nadarzyn",
       "address": "do ustalenia",
-      "days": ["so"],
+      "website": "",
+      "days": [
+        "so"
+      ],
       "hours": "",
       "verified": false,
       "source": "Do weryfikacji (strona gminy)",
@@ -114,7 +148,15 @@
       "name": "Warszawski Rolno-Spożywczy Rynek Hurtowy Bronisze",
       "city": "Bronisze",
       "address": "ul. Poznańska 98, Bronisze",
-      "days": ["pn", "wt", "sr", "cz", "pt", "so"],
+      "website": "https://bronisze.com.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so"
+      ],
       "hours": "hurt: od wczesnych godzin porannych",
       "verified": true,
       "source": "Strona oficjalna Bronisze",
@@ -126,7 +168,12 @@
       "name": "Bazarek Ursus",
       "city": "Warszawa (Ursus)",
       "address": "do ustalenia",
-      "days": ["wt", "cz", "so"],
+      "website": "",
+      "days": [
+        "wt",
+        "cz",
+        "so"
+      ],
       "hours": "",
       "verified": false,
       "source": "Do weryfikacji",
@@ -138,7 +185,15 @@
       "name": "Targowisko Bemowo",
       "city": "Warszawa (Bemowo)",
       "address": "do ustalenia",
-      "days": ["pn", "wt", "sr", "cz", "pt", "so"],
+      "website": "",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so"
+      ],
       "hours": "",
       "verified": false,
       "source": "Do weryfikacji",

@@ -77,6 +77,13 @@ Realizacja: osobna statyczna podstrona dla **każdego miasta** i **każdego targ
 
 Interpretacja: wysoki CTR Eko → inwestuj w audyty. Niski CTR, ale dobra retencja → produktem jest sama wyszukiwarka godzin; monetyzuj przez profile premium sprzedawców (walidacja cenowa: Ogrosa, 29–59 zł/mies.).
 
+**Doprecyzowanie zakresu Eko-Weryfikacji (decyzja właściciela, 2026-07):** raport dotyczy
+zawsze **konkretnego stoiska i konkretnego produktu** (np. „jajka pana Janka, stoisko 14"),
+nigdy całego targowiska. Formularz Przycisku-Widmo zbiera dodatkowo głos użytkownika,
+**którą kategorię produktu** sprawdzić najpierw (jajka / nabiał / warzywa / mięso / miód /
+pieczywo) — zdarzenia `zapis/eko/<targ>/<kategoria>` w GoatCounter budują ranking popytu
+na audyty jeszcze przed pierwszym wyjazdem w teren.
+
 ---
 
 ## 5. Ryzyka (skrót) i mitygacje wbudowane w MVP
