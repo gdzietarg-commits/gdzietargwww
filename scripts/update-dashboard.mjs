@@ -83,13 +83,32 @@ if (!token || !config.goatcounter) {
   }
 }
 
+// --- Newsletter (Buttondown API, opcjonalnie) ---
+let newsletterSection = "";
+const bdKey = process.env.BUTTONDOWN_API_KEY;
+if (bdKey) {
+  try {
+    const res = await fetch("https://api.buttondown.email/v1/subscribers?type=regular", {
+      headers: { Authorization: `Token ${bdKey}` },
+    });
+    if (res.ok) {
+      const data = await res.json();
+      newsletterSection = `## 📬 Newsletter\n\n- Subskrybenci: **${data.count ?? (data.results ? data.results.length : "?")}**\n\n`;
+    } else {
+      newsletterSection = `## 📬 Newsletter\n\n> Błąd Buttondown API (HTTP ${res.status}) — sprawdź sekret BUTTONDOWN_API_KEY.\n\n`;
+    }
+  } catch (err) {
+    newsletterSection = `## 📬 Newsletter\n\n> Błąd pobierania z Buttondown: ${err.message}\n\n`;
+  }
+}
+
 // --- Złóż dokument ---
 const md = `# 📊 GdzieTarg.pl — Dashboard
 
 > Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **${today}**.
 > Czytaj z telefonu: aplikacja GitHub → repo → \`docs/DASHBOARD.md\`.
 
-${trafficSection}${dataSection}## 🔗 Szybkie linki
+${trafficSection}${newsletterSection}${dataSection}## 🔗 Szybkie linki
 
 - [Strona na żywo](${config.siteUrl})
 - [Baza targowisk (edycja)](https://github.com/${config.githubRepo}/edit/main/data/markets.json)

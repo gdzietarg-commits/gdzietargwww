@@ -25,6 +25,7 @@ jobs:
       - name: Zaktualizuj dashboard
         env:
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
         run: node scripts/update-dashboard.mjs
       - name: Commit i push
         run: |
