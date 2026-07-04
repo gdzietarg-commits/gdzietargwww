@@ -5,10 +5,14 @@
 
 ## 📈 Ruch na stronie
 
-> Analityka nieskonfigurowana. Aby włączyć:
-> 1. Załóż darmowe konto na [goatcounter.com](https://www.goatcounter.com) z kodem `gdzietarg`.
-> 2. Wygeneruj token API (Settings → API) i dodaj sekret `GOATCOUNTER_TOKEN` w repo (Settings → Secrets → Actions).
-> 3. Ten dashboard uzupełni się automatycznie następnego dnia.
+### Najpopularniejsze strony i zdarzenia (7 dni)
+
+| Ścieżka | Odsłony |
+|---|---|
+
+### 🌿 Walidacja Przycisku-Widmo
+- Kliknięcia „Raport Eko-Weryfikacji": **0**
+- Zapisy e-mail: **0**
 
 ## 📦 Stan bazy danych
 
@@ -31,7 +35,7 @@
 
 ## 🔗 Szybkie linki
 
-- [Strona na żywo](https://gdzietarg-commits.github.io/gdzietargwww)
+- [Strona na żywo](https://www.gdzietarg.pl)
 - [Baza targowisk (edycja)](https://github.com/gdzietarg-commits/gdzietargwww/edit/main/data/markets.json)
 - [Zgłoszenia od społeczności](https://github.com/gdzietarg-commits/gdzietargwww/issues?q=label%3Adane)
 - [Przebiegi automatów](https://github.com/gdzietarg-commits/gdzietargwww/actions)
