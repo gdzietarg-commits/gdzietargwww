@@ -64,8 +64,10 @@ ${jsonld ? `<script type="application/ld+json">${jsonld}</script>` : ""}
 </head>
 <body>
 <header class="site-header">
-  <a class="logo" href="index.html">🥕 <strong>GdzieTarg</strong>.pl</a>
-  <nav><a href="index.html">Targowiska</a> <a href="o-projekcie.html">O projekcie</a></nav>
+  <div class="header-inner">
+    <a class="logo" href="index.html"><span class="logo-mark">🥕</span> <span class="logo-text"><strong>GdzieTarg</strong>.pl</span></a>
+    <nav><a href="index.html">Targowiska</a> <a href="o-projekcie.html">O projekcie</a></nav>
+  </div>
 </header>
 <main>
 ${content}
@@ -161,12 +163,16 @@ const pages = [];
 // Strona główna
 const indexContent = `
 <section class="hero">
-  <h1>Gdzie i kiedy jest targ?</h1>
-  <p>Aktualne dni i godziny targowisk oraz bazarków — ${esc(config.region)}.</p>
+  <span class="hero-eyebrow">🌿 Świeżo · lokalnie · bez pośredników</span>
+  <h1>Gdzie i kiedy<br>jest targ?</h1>
+  <p class="hero-sub">Aktualne dni i godziny targowisk oraz bazarków — ${esc(config.region)}.</p>
   <div class="search-box">
-    <input type="search" id="q" placeholder="Szukaj: miasto lub nazwa targu…" aria-label="Szukaj targowiska">
+    <div class="search-field">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input type="search" id="q" placeholder="Wpisz miasto lub nazwę targu…" aria-label="Szukaj targowiska">
+    </div>
     <div class="day-filter" id="day-filter" role="group" aria-label="Filtruj po dniu tygodnia">
-      <button class="day-tile" data-day="">Wszystkie</button>
+      <button class="day-tile active" data-day="">Wszystkie</button>
       ${DAY_ORDER.map((d) => `<button class="day-tile" data-day="${d}">${DAY_LABELS[d]}</button>`).join("")}
     </div>
     <p class="today-line" id="today-line" hidden></p>
