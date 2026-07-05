@@ -1,3 +1,6 @@
 dist/
 node_modules/
 .DS_Store
+
+# Osobiste notatki (np. eksport do Obsidian) — nie należą do repo projektu
+GdzieTarg.pl — Podsumowanie projektu.md
