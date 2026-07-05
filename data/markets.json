@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04",
+  "updated": "2026-07-05",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -119,33 +119,32 @@
       "id": "targowisko-grodzisk-mazowiecki",
       "name": "Targowisko Miejskie w Grodzisku Mazowieckim",
       "city": "Grodzisk Mazowiecki",
-      "address": "do ustalenia",
-      "website": "",
+      "address": "ul. Montwiłła 38",
+      "website": "https://grodzisk.pl",
       "days": [
-        "wt",
-        "pt",
+        "sr",
         "so"
       ],
-      "hours": "",
-      "verified": false,
-      "source": "Do weryfikacji (BIP / strona UM)",
-      "note": "Dni handlowe orientacyjne — wymagają potwierdzenia.",
-      "updated": "2026-07-02"
+      "hours": "4:00–13:00 (sr), 5:00–13:00 (so)",
+      "verified": true,
+      "source": "Oficjalny portal Gminy Grodzisk Mazowiecki (grodzisk.pl)",
+      "note": "W każdą trzecią niedzielę miesiąca odbywa się tu Targ Staroci.",
+      "updated": "2026-07-05"
     },
     {
       "id": "targowisko-nadarzyn",
       "name": "Targowisko w Nadarzynie",
       "city": "Nadarzyn",
-      "address": "do ustalenia",
-      "website": "",
+      "address": "ul. Żółwińska 12",
+      "website": "https://nadarzyn.pl",
       "days": [
         "so"
       ],
-      "hours": "",
-      "verified": false,
-      "source": "Do weryfikacji (strona gminy)",
-      "note": "Dni handlowe orientacyjne — wymagają potwierdzenia.",
-      "updated": "2026-07-02"
+      "hours": "6:00–12:00",
+      "verified": true,
+      "source": "Urząd Gminy Nadarzyn (nadarzyn.pl)",
+      "note": "Główne targowisko gminne, największy ruch w godzinach porannych.",
+      "updated": "2026-07-05"
     },
     {
       "id": "rynek-hurtowy-bronisze",
@@ -171,18 +170,20 @@
       "id": "bazarek-ursus-warszawa",
       "name": "Bazarek Ursus",
       "city": "Warszawa (Ursus)",
-      "address": "do ustalenia",
-      "website": "",
+      "address": "ul. Kazimierza Gierdziejewskiego 20",
+      "website": "https://um.warszawa.pl",
       "days": [
         "wt",
+        "sr",
         "cz",
+        "pt",
         "so"
       ],
-      "hours": "",
-      "verified": false,
-      "source": "Do weryfikacji",
-      "note": "Dni handlowe orientacyjne — wymagają potwierdzenia.",
-      "updated": "2026-07-02"
+      "hours": "5:00–14:00 (wt–pt), 3:00–15:30 (so)",
+      "verified": true,
+      "source": "Urząd Dzielnicy Ursus m.st. Warszawy",
+      "note": "Główne targowisko dzielnicy Ursus przy ul. Gierdziejewskiego, potocznie nazywane targiem w Ursusie. Największy ruch w sobotę od wczesnych godzin rannych.",
+      "updated": "2026-07-05"
     },
     {
       "id": "targowisko-bemowo-warszawa",
@@ -223,6 +224,38 @@
       "source": "Regulamin Targowiska Miejskiego w Milanówku",
       "note": "Czynne od poniedziałku do soboty, z największym ruchem w soboty. W wybrane niedziele odbywa się tu Wyprzedaż Garażowa i Targ Staroci.",
       "updated": "2026-07-04"
+    },
+    {
+      "id": "targowisko-moj-rynek-brwinow",
+      "name": "Targowisko Miejskie „Mój Rynek” w Brwinowie",
+      "city": "Brwinów",
+      "address": "ul. Rynek 24",
+      "website": "https://brwinow.pl",
+      "days": [
+        "so"
+      ],
+      "hours": "7:00–14:00",
+      "verified": true,
+      "source": "Oficjalny portal Gminy Brwinów (brwinow.pl)",
+      "note": "Nowoczesne zadaszone targowisko. Główny dzień handlowy to sobota. W ostatnią niedzielę miesiąca odbywa się tu Targ Przydasiów (pchli targ).",
+      "updated": "2026-07-05"
+    },
+    {
+      "id": "targowisko-miejskie-piaseczno",
+      "name": "Targowisko Miejskie w Piasecznie",
+      "city": "Piaseczno",
+      "address": "ul. Jana Pawła II 59",
+      "website": "https://piaseczno.eu",
+      "days": [
+        "wt",
+        "pt",
+        "so"
+      ],
+      "hours": "5:00–14:30 (wt, pt), 6:00–15:00 (so)",
+      "verified": true,
+      "source": "Oficjalny portal Gminy Piaseczno (piaseczno.eu)",
+      "note": "We wtorki i piątki tradycyjny handel rolniczy i spożywczy. W soboty odbywa się tu Pchli Targ „Z Bagażnika” oraz handel produktami lokalnymi.",
+      "updated": "2026-07-05"
     }
   ]
 }
