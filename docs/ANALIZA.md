@@ -96,6 +96,21 @@ na audyty jeszcze przed pierwszym wyjazdem w teren.
 
 ---
 
+## 5b. Strategia ekspansji geograficznej (decyzja 2026-07)
+
+Zasada: **kompletność w małym regionie przed rozlaniem na duży**. Użytkownik, który raz
+zastanie pusty plac lub błędne godziny, nie wraca — dziura w danych kosztuje bardziej niż
+brak miasta na liście. Dlatego rośniemy pierścieniami, a nie skokiem na całą Polskę.
+
+| Faza | Zasięg | Warunek wejścia | Tempo agenta |
+|---|---|---|---|
+| **1 (teraz)** | Warszawa Zachód + dzielnice WWA + pierścień podwarszawski (Legionowo, Piaseczno, Otwock, Wołomin, Nowy Dwór, Żyrardów…) | — | do 2 nowe targi/dzień |
+| **2** | całe woj. mazowieckie | dashboard pokazuje rosnący ruch organiczny i retencję > 20% | 3–5/dzień |
+| **3** | inne metropolie (Kraków, Trójmiasto, Wrocław, Poznań…) | walidacja monetyzacji (premium/partnerstwa) | wg potrzeb |
+
+Przełączenie fazy = jedna zmiana w `prompts/daily-update.md` (priorytet geograficzny + limit
+nowych targów). Nie skalujemy przed dowodem z danych — po to jest sekcja „Ruch" w dashboardzie.
+
 ## 6. Model operacyjny „projekt żyje sam"
 
 ```

@@ -53,30 +53,44 @@ if (!token || !config.goatcounter) {
 } else {
   const base = `https://${config.goatcounter}.goatcounter.com/api/v0`;
   const headers = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
+  const EVENT_PREFIXES = ["eko/", "zapis/", "filter/", "share/"];
+  const isEvent = (p) => EVENT_PREFIXES.some((pre) => (p || "").startsWith(pre));
   try {
-    const totalRes = await fetch(`${base}/stats/total?start=${daysAgo(7)}&end=${today}`, { headers });
-    const total = totalRes.ok ? await totalRes.json() : null;
-    const hitsRes = await fetch(`${base}/stats/hits?start=${daysAgo(7)}&end=${today}&limit=15`, { headers });
+    const hitsRes = await fetch(`${base}/stats/hits?start=${daysAgo(14)}&end=${today}&limit=50`, { headers });
     const hits = hitsRes.ok ? await hitsRes.json() : null;
 
-    if (total) {
-      trafficSection += `**Ostatnie 7 dni:** ${total.total ?? "?"} odsłon (unikalne: ${total.total_utc ?? total.total_unique ?? "?"})\n\n`;
-    }
     if (hits && Array.isArray(hits.hits)) {
-      const ekoClicks = hits.hits.filter((h) => (h.path || "").startsWith("eko/"));
-      const signups = hits.hits.filter((h) => (h.path || "").startsWith("zapis/"));
-      trafficSection += `### Najpopularniejsze strony i zdarzenia (7 dni)\n\n| Ścieżka | Odsłony |\n|---|---|\n`;
+      // Odsłony dzień po dniu (bez zdarzeń) — tabela z wykresem paskowym
+      const perDay = {};
+      for (let i = 14; i >= 0; i--) perDay[daysAgo(i)] = 0;
+      for (const h of hits.hits) {
+        if (isEvent(h.path)) continue;
+        for (const s of h.stats || []) {
+          if (s.day in perDay) perDay[s.day] += s.daily || 0;
+        }
+      }
+      const days = Object.keys(perDay).sort();
+      const totalViews = days.reduce((sum, d) => sum + perDay[d], 0);
+      const max = Math.max(1, ...days.map((d) => perDay[d]));
+      trafficSection += `**Odsłony w ostatnich 14 dniach: ${totalViews}**\n\n`;
+      trafficSection += `| Data | Odsłony | Wykres |\n|---|---:|---|\n`;
+      for (const d of days) {
+        const bar = "█".repeat(Math.round((perDay[d] / max) * 18)) || "·";
+        trafficSection += `| ${d} | ${perDay[d]} | ${bar} |\n`;
+      }
+      trafficSection += `\n### Najpopularniejsze strony i zdarzenia (14 dni)\n\n| Ścieżka | Odsłony |\n|---|---:|\n`;
       for (const h of hits.hits.slice(0, 15)) {
         trafficSection += `| \`${h.path}\` | ${h.count} |\n`;
       }
-      trafficSection += `\n### 🌿 Walidacja Przycisku-Widmo\n`;
-      const ekoTotal = ekoClicks.reduce((s, h) => s + (h.count || 0), 0);
-      const signupTotal = signups.reduce((s, h) => s + (h.count || 0), 0);
-      trafficSection += `- Kliknięcia „Raport Eko-Weryfikacji": **${ekoTotal}**\n`;
-      trafficSection += `- Zapisy e-mail: **${signupTotal}**\n\n`;
-    }
-    if (!total && !hits) {
-      trafficSection += `> Nie udało się pobrać danych z GoatCounter (sprawdź token i kod witryny \`${config.goatcounter}\`).\n\n`;
+      const ekoTotal = hits.hits.filter((h) => (h.path || "").startsWith("eko/")).reduce((s, h) => s + (h.count || 0), 0);
+      const signupTotal = hits.hits.filter((h) => (h.path || "").startsWith("zapis/")).reduce((s, h) => s + (h.count || 0), 0);
+      trafficSection += `\n### 🌿 Walidacja Przycisku-Widmo (14 dni)\n`;
+      trafficSection += `- Kliknięcia „Eko-Weryfikacja": **${ekoTotal}**\n`;
+      trafficSection += `- Zapisy e-mail: **${signupTotal}**\n`;
+      if (totalViews > 0) trafficSection += `- CTR przycisku: **${((ekoTotal / totalViews) * 100).toFixed(1)}%** (próg sukcesu: 8%)\n`;
+      trafficSection += `\nPełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://${config.goatcounter}.goatcounter.com)\n\n`;
+    } else {
+      trafficSection += `> Nie udało się pobrać danych z GoatCounter (HTTP ${hitsRes.status}) — sprawdź token i kod witryny \`${config.goatcounter}\`.\n\n`;
     }
   } catch (err) {
     trafficSection += `> Błąd pobierania statystyk: ${err.message}\n\n`;
