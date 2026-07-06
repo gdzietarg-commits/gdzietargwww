@@ -1,21 +1,21 @@
 {
-  "updated": "2026-07-05",
+  "updated": "2026-07-06",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
       "name": "Targowisko Miejskie w Pruszkowie",
       "city": "Pruszków",
       "address": "ul. Komorowska 14",
-      "website": "",
+      "website": "http://www.targowisko.pruszkow.pl",
       "days": [
         "wt",
         "pt"
       ],
-      "hours": "6:00–13:30",
+      "hours": "4:00–15:00",
       "verified": true,
-      "source": "Strona SZB Pruszków (targowiska miejskie)",
-      "note": "Największy targ w powiecie. Godziny do potwierdzenia u zarządcy.",
-      "updated": "2026-07-02"
+      "source": "Oficjalna strona targowisko.pruszkow.pl",
+      "note": "Największy targ w powiecie. W każdą drugą i ostatnią niedzielę miesiąca odbywa się tu Kiermasz Staroci.",
+      "updated": "2026-07-06"
     },
     {
       "id": "bazarek-zbikow-pruszkow",
@@ -37,17 +37,17 @@
       "id": "targowisko-piastow",
       "name": "Targowisko Miejskie w Piastowie",
       "city": "Piastów",
-      "address": "okolice ul. ks. Piotra Skargi",
-      "website": "",
+      "address": "ul. ks. Piotra Skargi 9/1",
+      "website": "https://piastow.pl",
       "days": [
         "sr",
         "so"
       ],
       "hours": "6:00–13:00",
       "verified": true,
-      "source": "BIP Piastów (regulamin targowiska)",
-      "note": "Dokładny adres i godziny do doprecyzowania na podstawie regulaminu.",
-      "updated": "2026-07-02"
+      "source": "Portal piastow.pl / Regulamin Targowiska Miejskiego",
+      "note": "Zmodernizowane targowisko miejskie z wyznaczonymi miejscami parkingowymi.",
+      "updated": "2026-07-06"
     },
     {
       "id": "targ-na-rynku-stare-babice",
@@ -189,7 +189,7 @@
       "id": "targowisko-bemowo-warszawa",
       "name": "Targowisko Bemowo",
       "city": "Warszawa (Bemowo)",
-      "address": "do ustalenia",
+      "address": "ul. Powstańców Śląskich paw. 49",
       "website": "",
       "days": [
         "pn",
@@ -199,11 +199,11 @@
         "pt",
         "so"
       ],
-      "hours": "",
-      "verified": false,
-      "source": "Do weryfikacji",
-      "note": "Dni handlowe orientacyjne — wymagają potwierdzenia.",
-      "updated": "2026-07-02"
+      "hours": "7:00–19:00 (pn–pt), 7:00–15:00 (so)",
+      "verified": true,
+      "source": "Portal TuStolica (informacje o targowisku TarBem)",
+      "note": "Popularne targowisko na Bemowie-Lotnisku (TarBem) rozciągające się wzdłuż ul. Powstańców Śląskich.",
+      "updated": "2026-07-06"
     },
     {
       "id": "targowisko-miejskie-milanowek",
@@ -256,6 +256,38 @@
       "source": "Oficjalny portal Gminy Piaseczno (piaseczno.eu)",
       "note": "We wtorki i piątki tradycyjny handel rolniczy i spożywczy. W soboty odbywa się tu Pchli Targ „Z Bagażnika” oraz handel produktami lokalnymi.",
       "updated": "2026-07-05"
+    },
+    {
+      "id": "bazarek-wisla-lomianki",
+      "name": "Bazarek przy ul. Wiślanej w Łomiankach",
+      "city": "Łomianki",
+      "address": "ul. Wiślana (róg Fabrycznej)",
+      "website": "https://lomianki.pl",
+      "days": [
+        "so"
+      ],
+      "hours": "6:00–13:00",
+      "verified": true,
+      "source": "Oficjalny portal Gminy Łomianki (lomianki.pl) / Informacje lokalne",
+      "note": "Tradycyjny bazarek w sąsiedztwie ul. Fabrycznej i Wiślanej, najwięcej otwartych stoisk rano.",
+      "updated": "2026-07-06"
+    },
+    {
+      "id": "targowisko-miejskie-legionowo",
+      "name": "Targowisko Miejskie w Legionowie",
+      "city": "Legionowo",
+      "address": "ul. Jana III Sobieskiego (róg Wysockiego)",
+      "website": "https://kzb-legionowo.pl",
+      "days": [
+        "wt",
+        "cz",
+        "so"
+      ],
+      "hours": "4:00–15:00",
+      "verified": true,
+      "source": "Zarządca KZB Legionowo (kzb-legionowo.pl)",
+      "note": "Duże targowisko miejskie zarządzane przez KZB Legionowo. W każdą niedzielę w godzinach 8:00-14:00 odbywa się tu pchli targ (Rupieciarnia).",
+      "updated": "2026-07-06"
     }
   ]
 }
