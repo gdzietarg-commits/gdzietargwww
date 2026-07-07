@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-06",
+  "updated": "2026-07-07",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -21,17 +21,17 @@
       "id": "bazarek-zbikow-pruszkow",
       "name": "Bazarek Żbików",
       "city": "Pruszków",
-      "address": "ul. Pańska 11 (Żbików)",
-      "website": "",
+      "address": "ul. Pańska 11",
+      "website": "http://targowisko.pruszkow.pl",
       "days": [
         "sr",
         "so"
       ],
-      "hours": "6:00–13:00",
+      "hours": "5:00–14:00",
       "verified": true,
-      "source": "Strona SZB Pruszków (targowiska miejskie)",
-      "note": "Mniejszy bazar osiedlowy w dzielnicy Żbików.",
-      "updated": "2026-07-02"
+      "source": "Oficjalna strona targowisko.pruszkow.pl",
+      "note": "Mniejszy bazar osiedlowy w dzielnicy Żbików. Obiekt przeszedł modernizację.",
+      "updated": "2026-07-07"
     },
     {
       "id": "targowisko-piastow",
@@ -54,15 +54,15 @@
       "name": "Targ na Rynku w Starych Babicach",
       "city": "Stare Babice",
       "address": "ul. Rynek 21 (przed Urzędem Gminy)",
-      "website": "",
+      "website": "https://stare-babice.pl",
       "days": [
         "so"
       ],
       "hours": "8:00–14:00",
       "verified": true,
-      "source": "Strona Gminy Stare Babice",
-      "note": "Targ śniadaniowo-rolniczy, klimat jarmarku.",
-      "updated": "2026-07-02"
+      "source": "Oficjalny portal Gminy Stare Babice (stare-babice.pl)",
+      "note": "Targ rolniczo-spożywczy (Mój Rynek) na placu przed Urzędem Gminy, wjazd od ul. Pocztowej.",
+      "updated": "2026-07-07"
     },
     {
       "id": "ryneczek-po-sasiedzku-hornowek",
@@ -150,7 +150,7 @@
       "id": "rynek-hurtowy-bronisze",
       "name": "Warszawski Rolno-Spożywczy Rynek Hurtowy Bronisze",
       "city": "Bronisze",
-      "address": "ul. Poznańska 98, Bronisze",
+      "address": "ul. Poznańska 98",
       "website": "https://bronisze.com.pl",
       "days": [
         "pn",
@@ -158,13 +158,14 @@
         "sr",
         "cz",
         "pt",
-        "so"
+        "so",
+        "nd"
       ],
-      "hours": "hurt: od wczesnych godzin porannych",
+      "hours": "hurt: całodobowo (z przerwą w soboty)",
       "verified": true,
-      "source": "Strona oficjalna Bronisze",
-      "note": "Rynek hurtowy — zakupy detaliczne możliwe, ale w dużych ilościach. Potencjalny partner strategiczny.",
-      "updated": "2026-07-02"
+      "source": "Oficjalna strona bronisze.com.pl",
+      "note": "Rynek hurtowy spożywczo-kwiatowy działający całodobowo. Zakupy detaliczne możliwe, ale głównie w ilościach hurtowych.",
+      "updated": "2026-07-07"
     },
     {
       "id": "bazarek-ursus-warszawa",
@@ -288,6 +289,43 @@
       "source": "Zarządca KZB Legionowo (kzb-legionowo.pl)",
       "note": "Duże targowisko miejskie zarządzane przez KZB Legionowo. W każdą niedzielę w godzinach 8:00-14:00 odbywa się tu pchli targ (Rupieciarnia).",
       "updated": "2026-07-06"
+    },
+    {
+      "id": "targowisko-miejskie-wolomin",
+      "name": "Targowisko Miejskie w Wołominie",
+      "city": "Wołomin",
+      "address": "ul. 1 Maja",
+      "website": "https://pk.wolomin.pl",
+      "days": [
+        "cz",
+        "so"
+      ],
+      "hours": "4:00–14:00",
+      "verified": true,
+      "source": "Przedsiębiorstwo Komunalne w Wołominie (pk.wolomin.pl)",
+      "note": "Główne targowisko miejskie. W wybrane niedziele odbywa się tu również Wołomińska Wyprzedaż Garażowa.",
+      "updated": "2026-07-07"
+    },
+    {
+      "id": "targowisko-miejskie-otwock",
+      "name": "Targowisko Miejskie w Otwocku",
+      "city": "Otwock",
+      "address": "ul. Batorego 32",
+      "website": "https://otwock.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so",
+        "nd"
+      ],
+      "hours": "5:00–15:00 (wt, pt, so, nd), 7:00–15:00 (pn, sr, cz)",
+      "verified": true,
+      "source": "Regulamin Targowiska Miejskiego w Otwocku (otwock.pl)",
+      "note": "Duży miejski bazar (Mój Rynek) przy ul. Batorego. Główne dni targowe z największym ruchem to wtorek, piątek i sobota.",
+      "updated": "2026-07-07"
     }
   ]
 }
