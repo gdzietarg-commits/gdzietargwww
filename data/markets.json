@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-07",
+  "updated": "2026-07-10",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -67,7 +67,7 @@
     {
       "id": "ryneczek-po-sasiedzku-hornowek",
       "name": "Ryneczek po Sąsiedzku w Hornówku",
-      "city": "Hornówek (gm. Stare Babice)",
+      "city": "Izabelin C (gm. Izabelin)",
       "address": "ul. 3 Maja 47",
       "website": "https://www.facebook.com/ryneczekposasiedzku",
       "days": [
@@ -75,9 +75,9 @@
       ],
       "hours": "8:00–14:00",
       "verified": true,
-      "source": "Strona na Facebooku / Gmina Izabelin",
+      "source": "Portal Gminy Izabelin (izabelin.pl) / Profil na Facebooku",
       "note": "Inicjatywa sąsiedzka z bogatą ofertą lokalnych wystawców, zdrowej żywności i rękodzieła. Miejsce spotkań społeczności.",
-      "updated": "2026-07-04"
+      "updated": "2026-07-10"
     },
     {
       "id": "targowisko-ozarow-mazowiecki",
@@ -90,10 +90,10 @@
         "so"
       ],
       "hours": "9:00–19:00 (pt), 9:00–15:00 (so)",
-      "verified": true,
+      "verified": false,
       "source": "Zakład Usług Komunalnych w Ożarowie Mazowieckim",
-      "note": "Główne dni handlowe to piątek i sobota. Zarządzane przez lokalny ZUK.",
-      "updated": "2026-07-04"
+      "note": "Zarządzane przez ZUK. W internecie znajdują się sprzeczne informacje dotyczące dni handlowych (źródła podają wtorki i piątki lub środy i soboty), dane wymagają bezpośredniej weryfikacji u zarządcy.",
+      "updated": "2026-07-10"
     },
     {
       "id": "targowisko-blonie",
@@ -222,9 +222,9 @@
       ],
       "hours": "6:00–18:00 (pn–pt), 5:00–14:00 (so)",
       "verified": true,
-      "source": "Regulamin Targowiska Miejskiego w Milanówku",
+      "source": "Uchwała Nr 111/IX/24 Rady Miasta Milanówka (milanowek.pl)",
       "note": "Czynne od poniedziałku do soboty, z największym ruchem w soboty. W wybrane niedziele odbywa się tu Wyprzedaż Garażowa i Targ Staroci.",
-      "updated": "2026-07-04"
+      "updated": "2026-07-10"
     },
     {
       "id": "targowisko-moj-rynek-brwinow",
@@ -326,6 +326,41 @@
       "source": "Regulamin Targowiska Miejskiego w Otwocku (otwock.pl)",
       "note": "Duży miejski bazar (Mój Rynek) przy ul. Batorego. Główne dni targowe z największym ruchem to wtorek, piątek i sobota.",
       "updated": "2026-07-07"
+    },
+    {
+      "id": "bazar-olimpia-warszawa",
+      "name": "Bazar Olimpia",
+      "city": "Warszawa (Wola)",
+      "address": "ul. Górczewska 56/60",
+      "website": "",
+      "days": [
+        "nd"
+      ],
+      "hours": "6:00–15:00",
+      "verified": true,
+      "source": "Oficjalne raporty m.st. Warszawy (um.warszawa.pl) / informacje lokalne",
+      "note": "Jeden z najpopularniejszych i największych bazarów w Warszawie, działający na terenie stadionu WRKS Olimpia wyłącznie w niedziele.",
+      "updated": "2026-07-10"
+    },
+    {
+      "id": "bazar-na-walbrzyskiej-warszawa",
+      "name": "Bazar na Wałbrzyskiej",
+      "city": "Warszawa (Mokotów)",
+      "address": "ul. Wałbrzyska 48A",
+      "website": "",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so"
+      ],
+      "hours": "7:00–18:00 (pn–pt), 7:00–15:00 (so)",
+      "verified": true,
+      "source": "Zestawienia cen m.st. Warszawy (um.warszawa.pl) / Baza firm pkt.pl",
+      "note": "Popularne i duże targowisko na Mokotowie (Służew), położone tuż przy stacji Metra Służew.",
+      "updated": "2026-07-10"
     }
   ]
 }
