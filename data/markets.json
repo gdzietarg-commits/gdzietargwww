@@ -92,7 +92,7 @@
       "hours": "9:00–19:00 (pt), 9:00–15:00 (so)",
       "verified": false,
       "source": "Zakład Usług Komunalnych w Ożarowie Mazowieckim",
-      "note": "Zarządzane przez ZUK. Pomimo szczegółowej weryfikacji w BIP i na stronach gminy, brak jest jednoznacznego i aktualnego harmonogramu z oficjalnymi godzinami handlu (nieoficjalne źródła podają wtorki i piątki rano, starsze wpisy sugerowały również soboty). Dane wymagają potwierdzenia bezpośrednio u zarządcy.",
+      "note": "Pomimo ponownej szczegółowej weryfikacji (stan na 11.07.2026) w BIP, na stronach gminy i ZUK, brak jest oficjalnego i aktualnego harmonogramu z jednoznacznymi dniami i godzinami handlu (nieoficjalne źródła podają wtorki i piątki rano lub soboty). Dane wymagają potwierdzenia.",
       "updated": "2026-07-11"
     },
     {
@@ -144,7 +144,7 @@
       "verified": true,
       "source": "Urząd Gminy Nadarzyn (nadarzyn.pl)",
       "note": "Główne targowisko gminne, największy ruch w godzinach porannych.",
-      "updated": "2026-07-05"
+      "updated": "2026-07-11"
     },
     {
       "id": "rynek-hurtowy-bronisze",
@@ -184,7 +184,7 @@
       "verified": true,
       "source": "Urząd Dzielnicy Ursus m.st. Warszawy",
       "note": "Główne targowisko dzielnicy Ursus przy ul. Gierdziejewskiego, potocznie nazywane targem w Ursusie. Największy ruch w sobotę od wczesnych godzin rannych.",
-      "updated": "2026-07-05"
+      "updated": "2026-07-11"
     },
     {
       "id": "targowisko-bemowo-warszawa",
@@ -239,7 +239,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Brwinów (brwinow.pl)",
       "note": "Nowoczesne zadaszone targowisko. Główny dzień handlowy to sobota. W ostatnią niedzielę miesiąca odbywa się tu Targ Przydasiów (pchli targ).",
-      "updated": "2026-07-05"
+      "updated": "2026-07-11"
     },
     {
       "id": "targowisko-miejskie-piaseczno",
@@ -256,7 +256,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Piaseczno (piaseczno.eu)",
       "note": "We wtorki i piątki tradycyjny handel rolniczy i spożywczy. W soboty odbywa się tu Pchli Targ „Z Bagażnika” oraz handel produktami lokalnymi.",
-      "updated": "2026-07-05"
+      "updated": "2026-07-11"
     },
     {
       "id": "bazarek-wisla-lomianki",
@@ -324,7 +324,7 @@
       "hours": "5:00–15:00 (wt, pt, so, nd), 7:00–15:00 (pn, sr, cz)",
       "verified": true,
       "source": "Regulamin Targowiska Miejskiego w Otwocku (otwock.pl)",
-      "note": "Duży miejski bazar (Mój Rynek) przy ul. Batorego. Główne dni targowe z największym ruchem to wtorek, piątek i sabota.",
+      "note": "Duży miejski bazar (Mój Rynek) przy ul. Batorego. Główne dni targowe z największym ruchem to wtorek, piątek i sobota.",
       "updated": "2026-07-07"
     },
     {
@@ -332,7 +332,7 @@
       "name": "Bazar Olimpia",
       "city": "Warszawa (Wola)",
       "address": "ul. Górczewska 56/60",
-      "website": "",
+      "website": "https://www.facebook.com/targolimpia/",
       "days": [
         "nd"
       ],
@@ -401,6 +401,44 @@
       "verified": true,
       "source": "Oficjalna strona zarządcy halabakalarska.pl",
       "note": "Klimatyczne, wielokulturowe targowisko z bogatą ofertą odzieży, kosmetyków oraz stoiskami z tradycyjną kuchnią azjatycką i afrykańską (Asian Town).",
+      "updated": "2026-07-11"
+    },
+    {
+      "id": "bazarek-na-dolku-ursynow-warszawa",
+      "name": "Bazarek na Dołku",
+      "city": "Warszawa (Ursynów)",
+      "address": "ul. Benedykta Polaka (róg ul. Płaskowickiej i al. KEN)",
+      "website": "https://www.facebook.com/bazareknadolku",
+      "days": [
+        "sr",
+        "so",
+        "nd"
+      ],
+      "hours": "6:00–15:00 (so, nd), 7:00–15:00 (sr)",
+      "verified": true,
+      "source": "Stowarzyszenie Kupców-Inwestorów Giełdy „Na Dołku” (facebook.com/bazareknadolku)",
+      "note": "Legendarny ursynowski bazarek przeniesiony czasowo na teren dawnej pętli autobusowej Natolin Północny. Największy ruch w soboty i niedziele od wczesnych godzin rannych.",
+      "updated": "2026-07-11"
+    },
+    {
+      "id": "targowisko-miejskie-zyrardow",
+      "name": "Targowisko Miejskie w Żyrardowie",
+      "city": "Żyrardów",
+      "address": "ul. Moniuszki 44/46",
+      "website": "https://www.zyrardow.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so",
+        "nd"
+      ],
+      "hours": "5:00–18:00 (pn, wt, cz), 4:00–18:00 (sr, pt, so), 6:00–16:00 (nd)",
+      "verified": true,
+      "source": "Regulamin zarządcy PGM Żyrardów / Portal zyrardow.pl",
+      "note": "Tradycyjne i duże targowisko miejskie czynne codziennie. Główne dni targowe z największym ruchem to środy, piątki i soboty. W niedziele odbywa się tu popularna giełda.",
       "updated": "2026-07-11"
     }
   ]
