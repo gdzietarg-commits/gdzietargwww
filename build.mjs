@@ -21,6 +21,9 @@ const DAY_ORDER = ["pn", "wt", "sr", "cz", "pt", "so", "nd"];
 
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+// Utwardzenie JSON-LD: escapuje sekwencje mogące wyjść z <script> (obrona anty-injection).
+const jsonldSafe = (s) => s.replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026");
+
 const slugify = (s) =>
   s.toLowerCase()
     .replace(/[ąćęłńóśźż]/g, (c) => ({ ą: "a", ć: "c", ę: "e", ł: "l", ń: "n", ó: "o", ś: "s", ź: "z", ż: "z" }[c]))
@@ -60,7 +63,7 @@ function page({ title, description, path, content, jsonld }) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:type" content="website">
-${jsonld ? `<script type="application/ld+json">${jsonld}</script>` : ""}
+${jsonld ? `<script type="application/ld+json">${jsonldSafe(jsonld)}</script>` : ""}
 </head>
 <body>
 <header class="site-header">
