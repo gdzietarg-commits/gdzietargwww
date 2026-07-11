@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-10",
+  "updated": "2026-07-11",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -92,8 +92,8 @@
       "hours": "9:00–19:00 (pt), 9:00–15:00 (so)",
       "verified": false,
       "source": "Zakład Usług Komunalnych w Ożarowie Mazowieckim",
-      "note": "Zarządzane przez ZUK. W internecie znajdują się sprzeczne informacje dotyczące dni handlowych (źródła podają wtorki i piątki lub środy i soboty), dane wymagają bezpośredniej weryfikacji u zarządcy.",
-      "updated": "2026-07-10"
+      "note": "Zarządzane przez ZUK. Pomimo szczegółowej weryfikacji w BIP i na stronach gminy, brak jest jednoznacznego i aktualnego harmonogramu z oficjalnymi godzinami handlu (nieoficjalne źródła podają wtorki i piątki rano, starsze wpisy sugerowały również soboty). Dane wymagają potwierdzenia bezpośrednio u zarządcy.",
+      "updated": "2026-07-11"
     },
     {
       "id": "targowisko-blonie",
@@ -113,7 +113,7 @@
       "verified": true,
       "source": "Oficjalna strona Gminy Błonie / ZUK Błonie",
       "note": "Zmodernizowane, wielofunkcyjne targowisko miejskie z pawilonami i płytą otwartą. W każdą drugą niedzielę miesiąca odbywa się tu Targ Staroci.",
-      "updated": "2026-07-04"
+      "updated": "2026-07-11"
     },
     {
       "id": "targowisko-grodzisk-mazowiecki",
@@ -129,7 +129,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Grodzisk Mazowiecki (grodzisk.pl)",
       "note": "W każdą trzecią niedzielę miesiąca odbywa się tu Targ Staroci.",
-      "updated": "2026-07-05"
+      "updated": "2026-07-11"
     },
     {
       "id": "targowisko-nadarzyn",
@@ -183,7 +183,7 @@
       "hours": "5:00–14:00 (wt–pt), 3:00–15:30 (so)",
       "verified": true,
       "source": "Urząd Dzielnicy Ursus m.st. Warszawy",
-      "note": "Główne targowisko dzielnicy Ursus przy ul. Gierdziejewskiego, potocznie nazywane targiem w Ursusie. Największy ruch w sobotę od wczesnych godzin rannych.",
+      "note": "Główne targowisko dzielnicy Ursus przy ul. Gierdziejewskiego, potocznie nazywane targem w Ursusie. Największy ruch w sobotę od wczesnych godzin rannych.",
       "updated": "2026-07-05"
     },
     {
@@ -324,7 +324,7 @@
       "hours": "5:00–15:00 (wt, pt, so, nd), 7:00–15:00 (pn, sr, cz)",
       "verified": true,
       "source": "Regulamin Targowiska Miejskiego w Otwocku (otwock.pl)",
-      "note": "Duży miejski bazar (Mój Rynek) przy ul. Batorego. Główne dni targowe z największym ruchem to wtorek, piątek i sobota.",
+      "note": "Duży miejski bazar (Mój Rynek) przy ul. Batorego. Główne dni targowe z największym ruchem to wtorek, piątek i sabota.",
       "updated": "2026-07-07"
     },
     {
@@ -361,6 +361,47 @@
       "source": "Zestawienia cen m.st. Warszawy (um.warszawa.pl) / Baza firm pkt.pl",
       "note": "Popularne i duże targowisko na Mokotowie (Służew), położone tuż przy stacji Metra Służew.",
       "updated": "2026-07-10"
+    },
+    {
+      "id": "targowisko-zieleniak-ochota",
+      "name": "Targowisko „Zieleniak” na Ochocie",
+      "city": "Warszawa (Ochota)",
+      "address": "ul. Grójecka 97",
+      "website": "https://ochota.um.warszawa.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so"
+      ],
+      "hours": "8:00–18:00 (pn–pt), 8:00–12:00 (so)",
+      "verified": true,
+      "source": "Urząd Dzielnicy Ochota m.st. Warszawy / Warszawa 19115",
+      "note": "Nowoczesna hala targowa Zieleniak zarządzana przez ZGN Ochota. Poza codziennym handlem spożywczo-przemysłowym, pod halą w wybrane niedziele (zazwyczaj ostatnia niedziela miesiąca w sezonie od kwietnia do listopada) odbywa się Ochocka Wyprzedaż Garażowa w godzinach 10:00–14:00.",
+      "updated": "2026-07-11"
+    },
+    {
+      "id": "bazarek-bakalarska-warszawa",
+      "name": "Bazarek przy ul. Bakalarskiej",
+      "city": "Warszawa (Włochy)",
+      "address": "ul. Bakalarska 11",
+      "website": "https://halabakalarska.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so",
+        "nd"
+      ],
+      "hours": "6:00–17:00",
+      "verified": true,
+      "source": "Oficjalna strona zarządcy halabakalarska.pl",
+      "note": "Klimatyczne, wielokulturowe targowisko z bogatą ofertą odzieży, kosmetyków oraz stoiskami z tradycyjną kuchnią azjatycką i afrykańską (Asian Town).",
+      "updated": "2026-07-11"
     }
   ]
 }
