@@ -1,9 +1,16 @@
-# Codzienny agent AI w wariancie Gemini (darmowy klucz: aistudio.google.com/apikey).
-# Wymaga sekretu GEMINI_API_KEY. Działa w harmonogramie tylko, gdy NIE ma klucza
-# ANTHROPIC_API_KEY (żeby dwa agenty nie edytowały danych naraz); ręcznie
-# (Run workflow) można go uruchomić zawsze.
-# Bezpieczniki: agent nie commituje sam — workflow waliduje build i przyjmuje
-# wyłącznie zmiany w data/markets.json.
+# Codzienny agent AI (Gemini) — wariant utwardzony (Etap 2: rozdzielenie uprawnień).
+#
+# Model bezpieczeństwa:
+#   • job `agent`   — token contents:READ. Agent (gemini --yolo) NIE MOŻE pushnąć kodu
+#                     ani zmienić main — to wymusza GitHub, nie „sprzątanie po fakcie".
+#                     Edytuje data/markets.json lokalnie, obsługuje Issues, oddaje wynik
+#                     jako artefakt. Nawet prompt injection nie da write-dostępu do repo.
+#   • job `publish` — token contents:WRITE, ale NIE uruchamia kodu agenta. Bierze artefakt,
+#                     przepuszcza przez walidator (schemat + anty-XSS + guard usuwania) i build,
+#                     i dopiero wtedy commituje/pushuje. Zła data = brak commita.
+#
+# Wymaga sekretu GEMINI_API_KEY. W harmonogramie ustępuje wariantowi Claude, gdy jest
+# ustawiony ANTHROPIC_API_KEY (ręczne uruchomienie działa zawsze).
 
 name: Daily Agent — Gemini (aktualizacja danych)
 
@@ -12,58 +19,91 @@ on:
     - cron: "15 4 * * *" # codziennie 04:15 UTC (~06:15 w Polsce)
   workflow_dispatch:
 
-permissions:
-  contents: write
-  issues: write
+# Domyślnie zero uprawnień; każdy job dostaje minimum, którego potrzebuje.
+permissions: {}
 
 jobs:
-  update-data:
+  # Bramka uruchomienia — pozwala warunkować kolejne joby na sekretach (których nie
+  # można użyć wprost w job-level `if`).
+  preflight:
     runs-on: ubuntu-latest
-    env:
-      HAS_GEMINI: ${{ secrets.GEMINI_API_KEY != '' }}
-      HAS_ANTHROPIC: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    outputs:
+      run: ${{ steps.check.outputs.run }}
     steps:
-      - name: Sprawdź warunki uruchomienia
+      - id: check
+        env:
+          HAS_GEMINI: ${{ secrets.GEMINI_API_KEY != '' }}
+          HAS_ANTHROPIC: ${{ secrets.ANTHROPIC_API_KEY != '' }}
         run: |
-          if [ "$HAS_GEMINI" != "true" ]; then
-            echo "Brak sekretu GEMINI_API_KEY — pomijam."
-          elif [ "$HAS_ANTHROPIC" = "true" ] && [ "${{ github.event_name }}" = "schedule" ]; then
-            echo "Jest klucz Anthropic — w harmonogramie działa agent Claude, pomijam Gemini."
+          if [ "$HAS_GEMINI" = "true" ] && { [ "$HAS_ANTHROPIC" != "true" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; }; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false — brak GEMINI_API_KEY albo w harmonogramie pierwszeństwo ma Claude."
+            echo "run=false" >> "$GITHUB_OUTPUT"
           fi
 
+  # ---- Agent: BEZ prawa zapisu do repo ----
+  agent:
+    needs: preflight
+    if: needs.preflight.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read # tylko odczyt repo — brak możliwości push/commit na main
+      issues: write # obsługa zgłoszeń (list/comment/close)
+    steps:
       - uses: actions/checkout@v4
-        if: env.HAS_GEMINI == 'true' && (env.HAS_ANTHROPIC != 'true' || github.event_name == 'workflow_dispatch')
         with:
           ref: main
-
       - uses: actions/setup-node@v4
-        if: env.HAS_GEMINI == 'true' && (env.HAS_ANTHROPIC != 'true' || github.event_name == 'workflow_dispatch')
         with:
           node-version: 22
-
-      - name: Uruchom agenta Gemini
-        if: env.HAS_GEMINI == 'true' && (env.HAS_ANTHROPIC != 'true' || github.event_name == 'workflow_dispatch')
+      - name: "Uruchom agenta Gemini (sandbox, token read-only)"
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_CLI_TRUST_WORKSPACE: "true"
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # read-only dla contents (patrz permissions)
         run: |
           npm install -g @google/gemini-cli
-          gemini --yolo -m gemini-3.5-flash -p "Przeczytaj plik prompts/daily-update.md i wykonaj opisane tam zadanie. WAŻNE ODSTĘPSTWO: nie wykonuj kroku commit/push — commit zrobi za Ciebie workflow. Twoja praca kończy się na edycji data/markets.json i obsłudze issues (gh issue). Dziś jest $(date -u +%F)." || echo "Agent zakończył z błędem — sprawdzam, czy zostawił sensowne zmiany."
+          gemini --yolo -m gemini-3.5-flash -p "Przeczytaj plik prompts/daily-update.md i wykonaj opisane tam zadanie. WAŻNE ODSTĘPSTWO: NIE commituj i NIE pushuj — nie masz do tego uprawnień i nie próbuj. Twoja praca kończy się na edycji data/markets.json oraz obsłudze issues (gh issue). Publikacją zajmie się osobny, zaufany krok. Dziś jest $(date -u +%F)." || echo "Agent zakończył z błędem — publikacja i tak przejdzie przez walidator."
+      - name: Oddaj wynik jako artefakt (tylko markets.json)
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-markets
+          path: data/markets.json
+          retention-days: 3
 
-      - name: Walidacja i commit (tylko data/markets.json)
-        if: env.HAS_GEMINI == 'true' && (env.HAS_ANTHROPIC != 'true' || github.event_name == 'workflow_dispatch')
+  # ---- Publikacja: zaufany krok, BEZ kodu agenta ----
+  publish:
+    needs: [preflight, agent]
+    if: needs.preflight.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # zapis dopiero tutaj, po walidacji
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Pobierz wynik agenta
+        uses: actions/download-artifact@v4
+        with:
+          name: agent-markets
+          path: incoming
+      - name: Podmień dane i zwaliduj (twarda bramka)
         run: |
-          # odrzuć wszystkie zmiany poza bazą targowisk
-          git add data/markets.json
-          git checkout -- . 2>/dev/null || true
-          git clean -fd 2>/dev/null || true
-          # TWARDA bramka: schemat + anty-XSS + guard usuwania (vs poprzedni commit).
-          # Błąd walidacji przerywa krok (set -e) → brak commita, złe dane nie trafiają na prod.
+          cp incoming/markets.json data/markets.json
+          rm -rf incoming
+          # Schemat + anty-XSS + guard usuwania (vs aktualny main = HEAD).
+          # Błąd walidacji przerywa krok (set -e) → brak commita; zła data nie trafia na prod.
           node scripts/validate-markets.mjs --against HEAD
-          # walidacja druga: strona faktycznie się buduje
+          # Druga bramka: strona faktycznie się buduje.
           node build.mjs
+      - name: Commit i push (jeśli są zmiany)
+        run: |
           git config user.name "gdzietarg-gemini"
           git config user.email "actions@github.com"
+          git add data/markets.json
           git diff --cached --quiet || git commit -m "data: aktualizacja targowisk $(date -u +%F) (agent Gemini)"
           git push
