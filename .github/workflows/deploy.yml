@@ -17,9 +17,11 @@ permissions:
   pages: write
   id-token: write
 
+# Nie przerywamy deployu w połowie: nowy push CZEKA, zamiast anulować trwający upload FTP
+# (ochrona przed częściowym stanem na serwerze — T6).
 concurrency:
   group: deploy
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -33,6 +35,8 @@ jobs:
         run: node scripts/validate-markets.mjs
       - name: Zbuduj stronę
         run: node build.mjs
+      - name: Bramka integralności buildu (przed wysyłką)
+        run: node scripts/check-build.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: site
@@ -54,6 +58,13 @@ jobs:
       - name: Brak sekretów FTP — pomiń
         if: env.HAS_FTP != 'true'
         run: echo "Dodaj sekrety FTP_SERVER, FTP_USERNAME, FTP_PASSWORD, aby wgrywać na www.gdzietarg.pl."
+      # checkout daje skrypty (verify-deploy) i data/config.json do smoke-testu
+      - uses: actions/checkout@v4
+        if: env.HAS_FTP == 'true'
+      - uses: actions/setup-node@v4
+        if: env.HAS_FTP == 'true'
+        with:
+          node-version: 22
       - uses: actions/download-artifact@v4
         if: env.HAS_FTP == 'true'
         with:
@@ -69,6 +80,11 @@ jobs:
           protocol: ftps
           local-dir: dist/
           server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+      - name: Smoke-test po deployu (żywa strona + świeżość)
+        if: env.HAS_FTP == 'true'
+        env:
+          EXPECT_SHA: ${{ github.sha }}
+        run: node scripts/verify-deploy.mjs
 
   deploy-pages:
     needs: build
