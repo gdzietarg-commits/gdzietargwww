@@ -56,8 +56,30 @@ if (!token || !config.goatcounter) {
   const EVENT_PREFIXES = ["eko/", "zapis/", "filter/", "share/"];
   const isEvent = (p) => EVENT_PREFIXES.some((pre) => (p || "").startsWith(pre));
   try {
-    const hitsRes = await fetch(`${base}/stats/hits?start=${daysAgo(14)}&end=${today}&limit=50`, { headers });
+    // Preflight: /api/v0/me potwierdza, czy token w ogóle działa (niezależnie od uprawnień do statystyk).
+    const meRes = await fetch(`${base}/me`, { headers });
+    if (!meRes.ok) {
+      trafficSection +=
+        `> ❌ Token GoatCounter nie działa: \`GET /api/v0/me\` → HTTP ${meRes.status}.\n` +
+        `> Token jest nieprawidłowy lub dotyczy innej witryny. Wygeneruj nowy w ` +
+        `[Settings → API](https://${config.goatcounter}.goatcounter.com/user/api) i zaktualizuj sekret \`GOATCOUNTER_TOKEN\`.\n\n`;
+    }
+
+    const hitsRes = meRes.ok
+      ? await fetch(`${base}/stats/hits?start=${daysAgo(14)}&end=${today}&limit=50`, { headers })
+      : { ok: false, status: 0 };
     const hits = hitsRes.ok ? await hitsRes.json() : null;
+
+    // Diagnoza: token OK (/me 200), ale statystyki 404 = brak uprawnienia „Read statistics".
+    if (meRes.ok && !hitsRes.ok) {
+      const hint =
+        hitsRes.status === 404
+          ? "Token nie ma uprawnienia **„Read statistics”** (GoatCounter zwraca wtedy 404). " +
+            "Wygeneruj nowy token z zaznaczonym „Read statistics”."
+          : "Sprawdź zakres tokenu i kod witryny.";
+      trafficSection +=
+        `> ⚠️ Token działa (\`/me\` OK), ale \`GET /api/v0/stats/hits\` → HTTP ${hitsRes.status}. ${hint}\n\n`;
+    }
 
     if (hits && Array.isArray(hits.hits)) {
       // Odsłony dzień po dniu (bez zdarzeń) — tabela z wykresem paskowym
@@ -89,8 +111,8 @@ if (!token || !config.goatcounter) {
       trafficSection += `- Zapisy e-mail: **${signupTotal}**\n`;
       if (totalViews > 0) trafficSection += `- CTR przycisku: **${((ekoTotal / totalViews) * 100).toFixed(1)}%** (próg sukcesu: 8%)\n`;
       trafficSection += `\nPełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://${config.goatcounter}.goatcounter.com)\n\n`;
-    } else {
-      trafficSection += `> Nie udało się pobrać danych z GoatCounter (HTTP ${hitsRes.status}) — sprawdź token i kod witryny \`${config.goatcounter}\`.\n\n`;
+    } else if (meRes.ok && hitsRes.ok) {
+      trafficSection += `> Odpowiedź GoatCounter miała nieoczekiwany kształt (brak pola \`hits\`). Endpoint: \`/api/v0/stats/hits\`.\n\n`;
     }
   } catch (err) {
     trafficSection += `> Błąd pobierania statystyk: ${err.message}\n\n`;
