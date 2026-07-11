@@ -58,7 +58,10 @@ jobs:
           git add data/markets.json
           git checkout -- . 2>/dev/null || true
           git clean -fd 2>/dev/null || true
-          # walidacja: JSON poprawny i strona się buduje
+          # TWARDA bramka: schemat + anty-XSS + guard usuwania (vs poprzedni commit).
+          # Błąd walidacji przerywa krok (set -e) → brak commita, złe dane nie trafiają na prod.
+          node scripts/validate-markets.mjs --against HEAD
+          # walidacja druga: strona faktycznie się buduje
           node build.mjs
           git config user.name "gdzietarg-gemini"
           git config user.email "actions@github.com"
