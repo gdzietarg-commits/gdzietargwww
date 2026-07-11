@@ -12,8 +12,7 @@ on:
 permissions:
   contents: write
   issues: write
-  pull-requests: write
-  id-token: write
+  # Usunięto pull-requests:write i id-token:write — nieużywane (minimalne uprawnienia).
 
 jobs:
   update-data:
