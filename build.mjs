@@ -339,4 +339,7 @@ ${pages.map((p) => `<url><loc>${config.siteUrl}/${p}</loc><lastmod>${db.updated}
 );
 writeFileSync(join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${config.siteUrl}/sitemap.xml\n`);
 
+// Marker buildu do weryfikacji po deployu (smoke-test sprawdza, czy żywa strona ma tę wersję).
+writeFileSync(join(DIST, "build-id.txt"), `${process.env.GITHUB_SHA || "local"}\n`);
+
 console.log(`✅ Zbudowano ${pages.length + 2} stron → dist/ (targowisk: ${markets.length}, miast: ${cities.length})`);

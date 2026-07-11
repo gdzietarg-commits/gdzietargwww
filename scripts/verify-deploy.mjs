@@ -1,0 +1,94 @@
+#!/usr/bin/env node
+// Smoke-test po deployu — sprawdza, czy ŻYWA strona odpowiada i ma świeży build.
+// Zero zależności. Uruchamiany w deploy.yml po wgraniu na FTP.
+//
+// Env:
+//   SITE_URL   — bazowy URL (domyślnie z data/config.json → siteUrl)
+//   EXPECT_SHA — oczekiwany commit (github.sha); miękka weryfikacja świeżości
+//
+// Twardo (fail = exit 1): strona główna zwraca 200 i zawiera marker "GdzieTarg".
+// Miękko (tylko ostrzeżenie): build-id.txt == EXPECT_SHA (odporne na cache/propagację hostingu).
+
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const ROOT = join(fileURLToPath(import.meta.url), "..", "..");
+const config = JSON.parse(readFileSync(join(ROOT, "data/config.json"), "utf8"));
+const SITE = (process.env.SITE_URL || config.siteUrl || "").replace(/\/$/, "");
+const EXPECT_SHA = process.env.EXPECT_SHA || "";
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function fetchText(url, { timeout = 15000 } = {}) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), timeout);
+  try {
+    const res = await fetch(url, { signal: ctrl.signal, headers: { "Cache-Control": "no-cache" } });
+    const body = await res.text();
+    return { status: res.status, body };
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+async function retry(fn, { tries = 5, delay = 8000 } = {}) {
+  let last;
+  for (let i = 0; i < tries; i++) {
+    try {
+      const r = await fn();
+      if (r) return r;
+    } catch (e) {
+      last = e;
+    }
+    if (i < tries - 1) await sleep(delay);
+  }
+  if (last) throw last;
+  return null;
+}
+
+if (!SITE) {
+  console.error("❌ Brak SITE_URL / config.siteUrl — nie wiem, co weryfikować.");
+  process.exit(1);
+}
+
+console.log(`🔎 Smoke-test: ${SITE}`);
+
+// TWARDO: strona główna 200 + marker
+let homeOk = false;
+try {
+  const home = await retry(async () => {
+    const { status, body } = await fetchText(`${SITE}/`);
+    console.log(`   GET / → HTTP ${status}`);
+    if (status === 200 && body.includes("GdzieTarg")) return { status, body };
+    return null;
+  });
+  homeOk = !!home;
+} catch (e) {
+  console.error(`   błąd pobierania strony głównej: ${e.message}`);
+}
+
+if (!homeOk) {
+  console.error(`❌ Strona główna nie odpowiada poprawnie (brak 200 lub markera "GdzieTarg"). Możliwy zły/częściowy deploy.`);
+  console.error(`   Rollback: git revert <ostatni commit danych> i push — deploy odtworzy poprzedni stan.`);
+  process.exit(1);
+}
+console.log("   ✅ strona główna żyje i zawiera marker.");
+
+// MIĘKKO: świeżość buildu
+if (EXPECT_SHA) {
+  try {
+    const fresh = await retry(async () => {
+      const { status, body } = await fetchText(`${SITE}/build-id.txt`);
+      if (status === 200 && body.trim() === EXPECT_SHA) return true;
+      console.log(`   build-id.txt → HTTP ${status}, wartość="${body.trim().slice(0, 12)}…", oczekiwano="${EXPECT_SHA.slice(0, 12)}…"`);
+      return null;
+    }, { tries: 6, delay: 10000 });
+    if (fresh) console.log("   ✅ build-id zgodny — świeża wersja jest na żywo.");
+    else console.warn("   ⚠️ Nie potwierdzono świeżości build-id (możliwy cache/propagacja hostingu). Strona żyje — nie blokuję.");
+  } catch (e) {
+    console.warn(`   ⚠️ build-id.txt niedostępny (${e.message}). Strona żyje — nie blokuję.`);
+  }
+}
+
+console.log("✅ Smoke-test zakończony pomyślnie.");
