@@ -64,7 +64,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # read-only dla contents (patrz permissions)
         run: |
           npm install -g @google/gemini-cli
-          gemini --yolo -m gemini-3.5-flash -p "Przeczytaj plik prompts/daily-update.md i wykonaj opisane tam zadanie. WAŻNE ODSTĘPSTWO: NIE commituj i NIE pushuj — nie masz do tego uprawnień i nie próbuj. Twoja praca kończy się na edycji data/markets.json oraz obsłudze issues (gh issue). Publikacją zajmie się osobny, zaufany krok. Dziś jest $(date -u +%F)." || echo "Agent zakończył z błędem — publikacja i tak przejdzie przez walidator."
+          gemini --yolo -m gemini-3.1-flash-lite -p "Przeczytaj plik prompts/daily-update.md i wykonaj opisane tam zadanie. WAŻNE ODSTĘPSTWO: NIE commituj i NIE pushuj — nie masz do tego uprawnień i nie próbuj. Twoja praca kończy się na edycji data/markets.json oraz obsłudze issues (gh issue). Publikacją zajmie się osobny, zaufany krok. Dziś jest $(date -u +%F)." || echo "Agent zakończył z błędem — publikacja i tak przejdzie przez walidator."
       - name: Oddaj wynik jako artefakt (tylko markets.json)
         uses: actions/upload-artifact@v4
         with:
