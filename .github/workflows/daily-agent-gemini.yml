@@ -50,6 +50,8 @@ jobs:
     permissions:
       contents: read # tylko odczyt repo — brak możliwości push/commit na main
       issues: write # obsługa zgłoszeń (list/comment/close)
+    outputs:
+      status: ${{ steps.run.outputs.status }} # ok | failed — sygnał dla healthcheck (T7)
     steps:
       - uses: actions/checkout@v4
         with:
@@ -58,13 +60,20 @@ jobs:
         with:
           node-version: 22
       - name: "Uruchom agenta Gemini (sandbox, token read-only)"
+        id: run
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_CLI_TRUST_WORKSPACE: "true"
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # read-only dla contents (patrz permissions)
         run: |
           npm install -g @google/gemini-cli
-          gemini --yolo -m gemini-3.1-flash-lite -p "Przeczytaj plik prompts/daily-update.md i wykonaj opisane tam zadanie. WAŻNE ODSTĘPSTWO: NIE commituj i NIE pushuj — nie masz do tego uprawnień i nie próbuj. Twoja praca kończy się na edycji data/markets.json oraz obsłudze issues (gh issue). Publikacją zajmie się osobny, zaufany krok. Dziś jest $(date -u +%F)." || echo "Agent zakończył z błędem — publikacja i tak przejdzie przez walidator."
+          # Nie „połykamy" po cichu: zapisujemy realny wynik do outputu (healthcheck zgłosi alert).
+          if gemini --yolo -m gemini-3.1-flash-lite -p "Przeczytaj plik prompts/daily-update.md i wykonaj opisane tam zadanie. WAŻNE ODSTĘPSTWO: NIE commituj i NIE pushuj — nie masz do tego uprawnień i nie próbuj. Twoja praca kończy się na edycji data/markets.json oraz obsłudze issues (gh issue). Publikacją zajmie się osobny, zaufany krok. Dziś jest $(date -u +%F)."; then
+            echo "status=ok" >> "$GITHUB_OUTPUT"
+          else
+            echo "status=failed" >> "$GITHUB_OUTPUT"
+            echo "::warning::Agent Gemini zakończył z błędem — publikacja przejdzie przez walidator, healthcheck otworzy alert."
+          fi
       - name: Oddaj wynik jako artefakt (tylko markets.json)
         uses: actions/upload-artifact@v4
         with:
@@ -107,3 +116,45 @@ jobs:
           git add data/markets.json
           git diff --cached --quiet || git commit -m "data: aktualizacja targowisk $(date -u +%F) (agent Gemini)"
           git push
+
+  # ---- Dead-man's switch (T7): głośny alert, gdy agent cicho padł ----
+  healthcheck:
+    needs: [preflight, agent]
+    if: always() && needs.preflight.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Alert / auto-resolve
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          AGENT_RESULT: ${{ needs.agent.result }}
+          AGENT_STATUS: ${{ needs.agent.outputs.status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # Etykieta alert (idempotentnie)
+          gh label create alert --repo "$REPO" --color B60205 --description "Automatyczny alert niezawodności" 2>/dev/null || true
+
+          TITLE="⚠️ Agent danych nie zadziałał"
+          existing=$(gh issue list --repo "$REPO" --label alert --state open --json number,title \
+            --jq '[.[] | select(.title | contains("Agent danych nie zadziałał"))][0].number // empty')
+
+          if [ "$AGENT_RESULT" != "success" ] || [ "$AGENT_STATUS" = "failed" ]; then
+            echo "::error::Agent nie zadziałał (result=$AGENT_RESULT, status=$AGENT_STATUS) — zgłaszam alert."
+            if [ -n "$existing" ]; then
+              gh issue comment "$existing" --repo "$REPO" --body "Kolejna nieudana próba: $(date -u +%F) · ${RUN_URL}"
+            else
+              printf '%s\n\n%s\n\n%s\n\n%s' \
+                "Agent Gemini nie zaktualizował danych automatycznie (result=$AGENT_RESULT, status=$AGENT_STATUS)." \
+                "Możliwe przyczyny: wyczerpany darmowy limit Gemini, błędny/wygasły klucz API, chwilowa awaria API." \
+                "Przebieg: ${RUN_URL}" \
+                "Ten alert zamknie się sam, gdy agent znów zadziała." \
+                | gh issue create --repo "$REPO" --label alert --title "$TITLE" --body-file -
+            fi
+          else
+            echo "Agent OK (result=$AGENT_RESULT, status=$AGENT_STATUS)."
+            if [ -n "$existing" ]; then
+              gh issue close "$existing" --repo "$REPO" --comment "✅ Agent znów działa ($(date -u +%F)). Alert zamknięty automatycznie."
+            fi
+          fi

@@ -70,16 +70,58 @@ jobs:
         with:
           name: site
           path: dist
-      - name: Wgraj przez FTP na hosting
+      # FTP bywa przejściowo niedostępny (home.pl potrafi odrzucić: „530 connection couldn't
+      # be accepted"). 3 próby z backoffem — bez anulowania (concurrency: cancel-in-progress:false).
+      - name: Wgraj przez FTP (próba 1)
+        id: ftp1
         if: env.HAS_FTP == 'true'
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
+          timeout: 60000
           local-dir: dist/
           server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+      - name: Backoff przed próbą 2
+        if: env.HAS_FTP == 'true' && steps.ftp1.outcome == 'failure'
+        run: sleep 30
+      - name: Wgraj przez FTP (próba 2)
+        id: ftp2
+        if: env.HAS_FTP == 'true' && steps.ftp1.outcome == 'failure'
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          timeout: 60000
+          local-dir: dist/
+          server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+      - name: Backoff przed próbą 3
+        if: env.HAS_FTP == 'true' && steps.ftp1.outcome == 'failure' && steps.ftp2.outcome == 'failure'
+        run: sleep 60
+      - name: Wgraj przez FTP (próba 3)
+        id: ftp3
+        if: env.HAS_FTP == 'true' && steps.ftp1.outcome == 'failure' && steps.ftp2.outcome == 'failure'
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          timeout: 60000
+          local-dir: dist/
+          server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+      - name: Zgłoś porażkę, jeśli wszystkie próby FTP padły
+        if: env.HAS_FTP == 'true' && steps.ftp1.outcome == 'failure' && steps.ftp2.outcome == 'failure' && steps.ftp3.outcome == 'failure'
+        run: |
+          echo "::error::Wszystkie 3 próby FTP nieudane — prawdopodobnie awaria/limit home.pl. Strona bez zmian; deploy ponowi się przy kolejnym pushu."
+          exit 1
       - name: Smoke-test po deployu (żywa strona + świeżość)
         if: env.HAS_FTP == 'true'
         env:
