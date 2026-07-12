@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11",
+  "updated": "2026-07-12",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -15,7 +15,7 @@
       "verified": true,
       "source": "Oficjalna strona targowisko.pruszkow.pl",
       "note": "Największy targ w powiecie. W każdą drugą i ostatnią niedzielę miesiąca odbywa się tu Kiermasz Staroci.",
-      "updated": "2026-07-06"
+      "updated": "2026-07-12"
     },
     {
       "id": "bazarek-zbikow-pruszkow",
@@ -47,7 +47,7 @@
       "verified": true,
       "source": "Portal piastow.pl / Regulamin Targowiska Miejskiego",
       "note": "Zmodernizowane targowisko miejskie z wyznaczonymi miejscami parkingowymi.",
-      "updated": "2026-07-06"
+      "updated": "2026-07-12"
     },
     {
       "id": "targ-na-rynku-stare-babice",
@@ -86,14 +86,14 @@
       "address": "ul. Strażacka 7",
       "website": "https://zuk.ozarow-mazowiecki.pl",
       "days": [
-        "pt",
-        "so"
+        "wt",
+        "pt"
       ],
-      "hours": "9:00–19:00 (pt), 9:00–15:00 (so)",
-      "verified": false,
-      "source": "Zakład Usług Komunalnych w Ożarowie Mazowieckim",
-      "note": "Pomimo ponownej szczegółowej weryfikacji (stan na 11.07.2026) w BIP, na stronach gminy i ZUK, brak jest oficjalnego i aktualnego harmonogramu z jednoznacznymi dniami i godzinami handlu (nieoficjalne źródła podają wtorki i piątki rano lub soboty). Dane wymagają potwierdzenia.",
-      "updated": "2026-07-11"
+      "hours": "6:00–13:00",
+      "verified": true,
+      "source": "Uchwała Nr LXXIV/683/23 Rady Miejskiej w Ożarowie Mazowieckim",
+      "note": "Tradycyjne targowisko miejskie przy ul. Strażackiej zarządzane przez ZUK. Największy ruch w godzinach porannych.",
+      "updated": "2026-07-12"
     },
     {
       "id": "targowisko-blonie",
@@ -440,6 +440,39 @@
       "source": "Regulamin zarządcy PGM Żyrardów / Portal zyrardow.pl",
       "note": "Tradycyjne i duże targowisko miejskie czynne codziennie. Główne dni targowe z największym ruchem to środy, piątki i soboty. W niedziele odbywa się tu popularna giełda.",
       "updated": "2026-07-11"
+    },
+    {
+      "id": "targowisko-miejskie-marki",
+      "name": "Mareckie Targowisko Miejskie",
+      "city": "Marki",
+      "address": "ul. Paderewskiego",
+      "website": "https://marki.pl",
+      "days": [
+        "wt",
+        "pt",
+        "so"
+      ],
+      "hours": "5:00–14:00",
+      "verified": true,
+      "source": "Regulamin wprowadzony Uchwałą nr XLIX/547/2022 Rady Miasta Marki",
+      "note": "Miejski plac targowy zarządzany przez Zakład Usług Komunalnych w Markach. Główne dni handlowe to wtorek, piątek i sobota.",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "targowisko-grapa-konstancin-jeziorna",
+      "name": "Targowisko Grapa w Konstancinie-Jeziornie",
+      "city": "Konstancin-Jeziorna",
+      "address": "al. Wojska Polskiego 28/30",
+      "website": "https://konstancinjeziorna.pl",
+      "days": [
+        "sr",
+        "so"
+      ],
+      "hours": "6:00–14:00",
+      "verified": true,
+      "source": "Oficjalny serwis gminy konstancinjeziorna.pl / Informacje lokalne",
+      "note": "Popularny, tradycyjny bazar na Grapie z bogatą ofertą świeżych warzyw, owoców i produktów od lokalnych rolników.",
+      "updated": "2026-07-12"
     }
   ]
 }
