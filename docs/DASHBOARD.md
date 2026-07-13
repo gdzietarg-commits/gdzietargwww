@@ -1,6 +1,6 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-07-12**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-07-13**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
@@ -16,14 +16,11 @@
 
 | Metryka | Wartość |
 |---|---|
-| Targowiska w bazie | **25** |
-| Zweryfikowane | 24 (96%) |
-| Do potwierdzenia | 1 |
+| Targowiska w bazie | **27** |
+| Zweryfikowane | 27 (100%) |
+| Do potwierdzenia | 0 |
 | Starsze niż 14 dni | 0 |
-| Miasta/gminy | 24 |
-
-### ⚠️ Czekają na weryfikację przez agenta
-- Targowisko Miejskie w Ożarowie Mazowieckim (Ożarów Mazowiecki) — ostatnia zmiana: 2026-07-11
+| Miasta/gminy | 26 |
 
 ## 🔗 Szybkie linki
 
