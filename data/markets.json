@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-14",
+  "updated": "2026-07-15",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -473,6 +473,26 @@
       "source": "Oficjalny serwis gminy konstancinjeziorna.pl / Informacje lokalne",
       "note": "Popularny, tradycyjny bazar na Grapie z bogatą ofertą świeżych warzyw, owoców i produktów od lokalnych rolników.",
       "updated": "2026-07-12"
+    },
+    {
+      "id": "targowisko-miejskie-zabki",
+      "name": "Targowisko Miejskie w Ząbkach",
+      "city": "Ząbki",
+      "address": "ul. Targowa 3/6",
+      "website": "",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so"
+      ],
+      "hours": "6:00–18:00 (pn–pt), 6:00–14:00 (so)",
+      "verified": true,
+      "source": "zabki24.pl / targeo.pl",
+      "note": "Zadaszone targowisko. Największy ruch w sobotnie poranki.",
+      "updated": "2026-07-15"
     }
   ]
 }
