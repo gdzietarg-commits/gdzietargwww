@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-15",
+  "updated": "2026-07-17",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -204,7 +204,7 @@
       "verified": true,
       "source": "Portal TuStolica (informacje o targowisku TarBem)",
       "note": "Popularne targowisko na Bemowie-Lotnisku (TarBem) rozciągające się wzdłuż ul. Powstańców Śląskich.",
-      "updated": "2026-07-06"
+      "updated": "2026-07-17"
     },
     {
       "id": "targowisko-miejskie-milanowek",
