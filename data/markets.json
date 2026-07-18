@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17",
+  "updated": "2026-07-18",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -271,7 +271,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Łomianki (lomianki.pl) / Informacje lokalne",
       "note": "Tradycyjny bazarek w sąsiedztwie ul. Fabrycznej i Wiślanej, najwięcej otwartych stoisk rano.",
-      "updated": "2026-07-06"
+      "updated": "2026-07-18"
     },
     {
       "id": "targowisko-miejskie-legionowo",
@@ -284,11 +284,11 @@
         "cz",
         "so"
       ],
-      "hours": "4:00–15:00",
+      "hours": "04:00–18:00 (lato), 05:00–16:00 (zima)",
       "verified": true,
       "source": "Zarządca KZB Legionowo (kzb-legionowo.pl)",
       "note": "Duże targowisko miejskie zarządzane przez KZB Legionowo. W każdą niedzielę w godzinach 8:00-14:00 odbywa się tu pchli targ (Rupieciarnia).",
-      "updated": "2026-07-06"
+      "updated": "2026-07-18"
     },
     {
       "id": "targowisko-miejskie-wolomin",
@@ -304,7 +304,7 @@
       "verified": true,
       "source": "Przedsiębiorstwo Komunalne w Wołominie (pk.wolomin.pl)",
       "note": "Główne targowisko miejskie. W wybrane niedziele odbywa się tu również Wołomińska Wyprzedaż Garażowa.",
-      "updated": "2026-07-07"
+      "updated": "2026-07-18"
     },
     {
       "id": "targowisko-miejskie-otwock",
