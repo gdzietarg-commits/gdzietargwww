@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-18",
+  "updated": "2026-07-19",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -31,7 +31,7 @@
       "verified": true,
       "source": "Oficjalna strona targowisko.pruszkow.pl",
       "note": "Mniejszy bazar osiedlowy w dzielnicy Żbików. Obiekt przeszedł modernizację.",
-      "updated": "2026-07-07"
+      "updated": "2026-07-19"
     },
     {
       "id": "targowisko-piastow",
@@ -62,7 +62,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Stare Babice (stare-babice.pl)",
       "note": "Targ rolniczo-spożywczy (Mój Rynek) na placu przed Urzędem Gminy, wjazd od ul. Pocztowej.",
-      "updated": "2026-07-07"
+      "updated": "2026-07-19"
     },
     {
       "id": "ryneczek-po-sasiedzku-hornowek",
@@ -165,7 +165,7 @@
       "verified": true,
       "source": "Oficjalna strona bronisze.com.pl",
       "note": "Rynek hurtowy spożywczo-kwiatowy działający całodobowo. Zakupy detaliczne możliwe, ale głównie w ilościach hurtowych.",
-      "updated": "2026-07-07"
+      "updated": "2026-07-19"
     },
     {
       "id": "bazarek-ursus-warszawa",
