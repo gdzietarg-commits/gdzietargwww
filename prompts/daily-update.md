@@ -33,6 +33,9 @@ datą `updated`. Dla każdego spróbuj znaleźć aktualne dni handlowe i godziny
   targowiska, jego zarządcy albo dedykowanej podstrony urzędu miasta/gminy (ewentualnie
   oficjalny fanpage targu na Facebooku). Wpisz URL tylko, jeśli sam go otworzyłeś
   i potwierdza, że dotyczy tego targowiska — inaczej zostaw pusty string.
+- Uzupełnij `lat`/`lng` (dokładne współrzędne targu), jeśli ich brak i potrafisz je ustalić
+  z wiarygodnego źródła (np. mapy dla podanego adresu). Dziesiętne, w granicach Polski
+  (lat 49–55, lng 14–24), oba naraz. Nie zgaduj — bez pewności zostaw puste (mapa użyje centrum miasta).
 
 ### 3. Poszerz bazę (ekspansja pierścieniowa)
 Jeśli kroki 1–2 zajęły mało czasu, dodaj **maksymalnie 2 nowe targowiska/bazary dziennie**,

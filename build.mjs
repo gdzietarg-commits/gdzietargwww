@@ -11,13 +11,30 @@ const DIST = join(ROOT, "dist");
 const config = JSON.parse(readFileSync(join(ROOT, "data/config.json"), "utf8"));
 const db = JSON.parse(readFileSync(join(ROOT, "data/markets.json"), "utf8"));
 const sezon = JSON.parse(readFileSync(join(ROOT, "data/sezon.json"), "utf8"));
+const geoCities = JSON.parse(readFileSync(join(ROOT, "data/geo-cities.json"), "utf8"));
 const markets = db.markets;
 const month = new Date().getMonth() + 1;
 const sezonNow = sezon[String(month)];
 
+// Współrzędne targu: własne lat/lng, w przeciwnym razie centrum miasta (fallback), inaczej null.
+const coordsFor = (m) => {
+  if (typeof m.lat === "number" && typeof m.lng === "number") return { lat: m.lat, lng: m.lng, exact: true };
+  const c = geoCities[m.city];
+  return c ? { lat: c[0], lng: c[1], exact: false } : null;
+};
+
+// Parsuje pierwszy zakres "HH:MM–HH:MM" z pola hours (do openingHoursSpecification).
+const parseHoursRange = (hours) => {
+  const m = String(hours || "").match(/(\d{1,2}):(\d{2})\s*[–\-—do]{1,3}\s*(\d{1,2}):(\d{2})/);
+  if (!m) return null;
+  const pad = (h, mi) => `${String(h).padStart(2, "0")}:${mi}`;
+  return { opens: pad(m[1], m[2]), closes: pad(m[3], m[4]) };
+};
+
 const DAY_LABELS = { pn: "Pon", wt: "Wt", sr: "Śr", cz: "Czw", pt: "Pt", so: "Sob", nd: "Ndz" };
 const DAY_FULL = { pn: "poniedziałek", wt: "wtorek", sr: "środa", cz: "czwartek", pt: "piątek", so: "sobota", nd: "niedziela" };
 const DAY_ORDER = ["pn", "wt", "sr", "cz", "pt", "so", "nd"];
+const DAY_SCHEMA = { pn: "Monday", wt: "Tuesday", sr: "Wednesday", cz: "Thursday", pt: "Friday", so: "Saturday", nd: "Sunday" };
 
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
@@ -49,7 +66,7 @@ const analytics = config.goatcounter
   ? `<script data-goatcounter="https://${config.goatcounter}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>`
   : "";
 
-function page({ title, description, path, content, jsonld }) {
+function page({ title, description, path, content, jsonld, extraHead = "" }) {
   return `<!doctype html>
 <html lang="pl">
 <head>
@@ -57,8 +74,8 @@ function page({ title, description, path, content, jsonld }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-<link rel="canonical" href="${config.siteUrl}/${path}">
-<link rel="stylesheet" href="assets/style.css">
+${config.googleSiteVerification ? `<meta name="google-site-verification" content="${esc(config.googleSiteVerification)}">\n` : ""}<link rel="canonical" href="${config.siteUrl}/${path}">
+${extraHead}<link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥕</text></svg>">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
@@ -69,7 +86,7 @@ ${jsonld ? `<script type="application/ld+json">${jsonldSafe(jsonld)}</script>` :
 <header class="site-header">
   <div class="header-inner">
     <a class="logo" href="index.html"><span class="logo-mark">🥕</span> <span class="logo-text"><strong>GdzieTarg</strong>.pl</span></a>
-    <nav><a href="index.html">Targowiska</a> <a href="o-projekcie.html">O projekcie</a></nav>
+    <nav><a href="index.html">Targowiska</a> <a href="mapa.html">Mapa</a> <a href="o-projekcie.html">O projekcie</a></nav>
   </div>
 </header>
 <main>
@@ -179,6 +196,7 @@ const indexContent = `
       ${DAY_ORDER.map((d) => `<button class="day-tile" data-day="${d}">${DAY_LABELS[d]}</button>`).join("")}
     </div>
     <p class="today-line" id="today-line" hidden></p>
+    <p style="margin-top:14px;"><a class="city-link" href="mapa.html">🗺️ Zobacz wszystkie na mapie (z geolokalizacją)</a></p>
   </div>
 </section>
 <section class="grid" id="grid">
@@ -236,6 +254,8 @@ for (const m of markets) {
   const faqAnswer = m.days.length
     ? `${m.name} działa w dni: ${daysFull}${m.hours ? `, w godzinach ${m.hours}` : ""}. Adres: ${m.address}, ${m.city}.`
     : `Dni handlowe targowiska ${m.name} są w trakcie weryfikacji.`;
+  const hoursRange = parseHoursRange(m.hours);
+  const geo = coordsFor(m);
   const jsonld = JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
@@ -244,7 +264,16 @@ for (const m of markets) {
         name: m.name,
         ...(m.website && { url: m.website }),
         address: { "@type": "PostalAddress", streetAddress: m.address, addressLocality: m.city, addressCountry: "PL" },
+        ...(geo && geo.exact && { geo: { "@type": "GeoCoordinates", latitude: geo.lat, longitude: geo.lng } }),
         ...(m.hours && { description: `Dni handlowe: ${daysFull}. Godziny: ${m.hours}.` }),
+        ...(hoursRange && m.days.length && {
+          openingHoursSpecification: m.days.map((d) => ({
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: DAY_SCHEMA[d],
+            opens: hoursRange.opens,
+            closes: hoursRange.closes,
+          })),
+        }),
       },
       {
         "@type": "FAQPage",
@@ -318,6 +347,43 @@ writeFileSync(
 );
 pages.push("o-projekcie.html");
 
+// Mapa targowisk (Leaflet + OpenStreetMap, z geolokalizacją)
+const mapMarkets = markets
+  .map((m) => {
+    const g = coordsFor(m);
+    if (!g) return null;
+    return { name: m.name, slug: m.id || slugify(m.name), city: m.city, days: m.days, hours: m.hours, lat: g.lat, lng: g.lng, exact: g.exact };
+  })
+  .filter(Boolean);
+const noCoords = markets.length - mapMarkets.length;
+const mapHead =
+  `<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">\n` +
+  `<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>\n`;
+const mapContent = `
+<nav class="crumbs"><a href="index.html">← Wszystkie targowiska</a></nav>
+<section class="hero small">
+  <h1>🗺️ Mapa targowisk</h1>
+  <p class="hero-sub">${mapMarkets.length} targowisk na mapie — kliknij pinezkę po dni i godziny.
+  ${noCoords > 0 ? `(${noCoords} bez lokalizacji — wkrótce).` : ""}</p>
+  <button id="geo-btn" class="eko-btn" style="max-width:320px;margin:0 auto;">📍 Pokaż najbliższe targi</button>
+  <p class="today-line" id="geo-note" style="display:block;background:none;"></p>
+</section>
+<div id="map" style="height:70vh;min-height:420px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md);margin-top:8px;"></div>
+<p class="empty-msg" style="padding-top:16px;">Pinezki przy kilku targach w jednym mieście mogą się nakładać — dokładny adres jest w dymku i na stronie targu.</p>
+<script>window.GT_MARKETS=${JSON.stringify(mapMarkets)};</script>
+<script src="assets/map.js"></script>`;
+writeFileSync(
+  join(DIST, "mapa.html"),
+  page({
+    title: `Mapa targowisk — ${config.siteName}`,
+    description: `Interaktywna mapa lokalnych targowisk i bazarów (${config.region}). Znajdź najbliższy targ i sprawdź dni oraz godziny.`,
+    path: "mapa.html",
+    content: mapContent,
+    extraHead: mapHead,
+  })
+);
+pages.push("mapa.html");
+
 // 404
 writeFileSync(
   join(DIST, "404.html"),
@@ -338,6 +404,9 @@ ${pages.map((p) => `<url><loc>${config.siteUrl}/${p}</loc><lastmod>${db.updated}
 </urlset>`
 );
 writeFileSync(join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${config.siteUrl}/sitemap.xml\n`);
+
+// IndexNow: plik-klucz w katalogu głównym (wyszukiwarki weryfikują nim własność domeny).
+if (config.indexnowKey) writeFileSync(join(DIST, `${config.indexnowKey}.txt`), `${config.indexnowKey}\n`);
 
 // Marker buildu do weryfikacji po deployu (smoke-test sprawdza, czy żywa strona ma tę wersję).
 writeFileSync(join(DIST, "build-id.txt"), `${process.env.GITHUB_SHA || "local"}\n`);

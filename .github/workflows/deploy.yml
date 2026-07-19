@@ -127,6 +127,10 @@ jobs:
         env:
           EXPECT_SHA: ${{ github.sha }}
         run: node scripts/verify-deploy.mjs
+      - name: Powiadom wyszukiwarki (IndexNow)
+        if: env.HAS_FTP == 'true'
+        continue-on-error: true
+        run: node scripts/indexnow.mjs
 
   deploy-pages:
     needs: build
