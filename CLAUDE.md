@@ -30,9 +30,13 @@ Strona statyczna generowana z JSON, hostowana na GitHub Pages, zasilana codzienn
   "verified": true,
   "source": "skąd pochodzą dane",
   "note": "uwagi widoczne dla użytkownika",
-  "updated": "YYYY-MM-DD"
+  "updated": "YYYY-MM-DD",
+  "lat": 52.170,
+  "lng": 20.812
 }
 ```
+`lat`/`lng` są **opcjonalne** (dziesiętne, w granicach Polski) — dokładne współrzędne targu na mapie.
+Bez nich mapa używa centrum miasta (`data/geo-cities.json`). Podawaj oba albo żadne.
 Klucze dni: `pn wt sr cz pt so nd` (bez polskich znaków!).
 
 ## Zasady

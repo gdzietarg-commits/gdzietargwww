@@ -1,73 +1,73 @@
 {
-  "updated": "2026-07-05",
+  "updated": "2026-07-18",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
       "name": "Targowisko Miejskie w Pruszkowie",
       "city": "Pruszków",
       "address": "ul. Komorowska 14",
-      "website": "",
+      "website": "http://www.targowisko.pruszkow.pl",
       "days": [
         "wt",
         "pt"
       ],
-      "hours": "6:00–13:30",
+      "hours": "4:00–15:00",
       "verified": true,
-      "source": "Strona SZB Pruszków (targowiska miejskie)",
-      "note": "Największy targ w powiecie. Godziny do potwierdzenia u zarządcy.",
-      "updated": "2026-07-02"
+      "source": "Oficjalna strona targowisko.pruszkow.pl",
+      "note": "Największy targ w powiecie. W każdą drugą i ostatnią niedzielę miesiąca odbywa się tu Kiermasz Staroci.",
+      "updated": "2026-07-12"
     },
     {
       "id": "bazarek-zbikow-pruszkow",
       "name": "Bazarek Żbików",
       "city": "Pruszków",
-      "address": "ul. Pańska 11 (Żbików)",
-      "website": "",
+      "address": "ul. Pańska 11",
+      "website": "http://targowisko.pruszkow.pl",
       "days": [
         "sr",
         "so"
       ],
-      "hours": "6:00–13:00",
+      "hours": "5:00–14:00",
       "verified": true,
-      "source": "Strona SZB Pruszków (targowiska miejskie)",
-      "note": "Mniejszy bazar osiedlowy w dzielnicy Żbików.",
-      "updated": "2026-07-02"
+      "source": "Oficjalna strona targowisko.pruszkow.pl",
+      "note": "Mniejszy bazar osiedlowy w dzielnicy Żbików. Obiekt przeszedł modernizację.",
+      "updated": "2026-07-07"
     },
     {
       "id": "targowisko-piastow",
       "name": "Targowisko Miejskie w Piastowie",
       "city": "Piastów",
-      "address": "okolice ul. ks. Piotra Skargi",
-      "website": "",
+      "address": "ul. ks. Piotra Skargi 9/1",
+      "website": "https://piastow.pl",
       "days": [
         "sr",
         "so"
       ],
       "hours": "6:00–13:00",
       "verified": true,
-      "source": "BIP Piastów (regulamin targowiska)",
-      "note": "Dokładny adres i godziny do doprecyzowania na podstawie regulaminu.",
-      "updated": "2026-07-02"
+      "source": "Portal piastow.pl / Regulamin Targowiska Miejskiego",
+      "note": "Zmodernizowane targowisko miejskie z wyznaczonymi miejscami parkingowymi.",
+      "updated": "2026-07-12"
     },
     {
       "id": "targ-na-rynku-stare-babice",
       "name": "Targ na Rynku w Starych Babicach",
       "city": "Stare Babice",
       "address": "ul. Rynek 21 (przed Urzędem Gminy)",
-      "website": "",
+      "website": "https://stare-babice.pl",
       "days": [
         "so"
       ],
       "hours": "8:00–14:00",
       "verified": true,
-      "source": "Strona Gminy Stare Babice",
-      "note": "Targ śniadaniowo-rolniczy, klimat jarmarku.",
-      "updated": "2026-07-02"
+      "source": "Oficjalny portal Gminy Stare Babice (stare-babice.pl)",
+      "note": "Targ rolniczo-spożywczy (Mój Rynek) na placu przed Urzędem Gminy, wjazd od ul. Pocztowej.",
+      "updated": "2026-07-07"
     },
     {
       "id": "ryneczek-po-sasiedzku-hornowek",
       "name": "Ryneczek po Sąsiedzku w Hornówku",
-      "city": "Hornówek (gm. Stare Babice)",
+      "city": "Izabelin C (gm. Izabelin)",
       "address": "ul. 3 Maja 47",
       "website": "https://www.facebook.com/ryneczekposasiedzku",
       "days": [
@@ -75,9 +75,9 @@
       ],
       "hours": "8:00–14:00",
       "verified": true,
-      "source": "Strona na Facebooku / Gmina Izabelin",
+      "source": "Portal Gminy Izabelin (izabelin.pl) / Profil na Facebooku",
       "note": "Inicjatywa sąsiedzka z bogatą ofertą lokalnych wystawców, zdrowej żywności i rękodzieła. Miejsce spotkań społeczności.",
-      "updated": "2026-07-04"
+      "updated": "2026-07-10"
     },
     {
       "id": "targowisko-ozarow-mazowiecki",
@@ -86,14 +86,14 @@
       "address": "ul. Strażacka 7",
       "website": "https://zuk.ozarow-mazowiecki.pl",
       "days": [
-        "pt",
-        "so"
+        "wt",
+        "pt"
       ],
-      "hours": "9:00–19:00 (pt), 9:00–15:00 (so)",
+      "hours": "6:00–13:00",
       "verified": true,
-      "source": "Zakład Usług Komunalnych w Ożarowie Mazowieckim",
-      "note": "Główne dni handlowe to piątek i sobota. Zarządzane przez lokalny ZUK.",
-      "updated": "2026-07-04"
+      "source": "Uchwała Nr LXXIV/683/23 Rady Miejskiej w Ożarowie Mazowieckim",
+      "note": "Tradycyjne targowisko miejskie przy ul. Strażackiej zarządzane przez ZUK. Największy ruch w godzinach porannych.",
+      "updated": "2026-07-12"
     },
     {
       "id": "targowisko-blonie",
@@ -113,7 +113,7 @@
       "verified": true,
       "source": "Oficjalna strona Gminy Błonie / ZUK Błonie",
       "note": "Zmodernizowane, wielofunkcyjne targowisko miejskie z pawilonami i płytą otwartą. W każdą drugą niedzielę miesiąca odbywa się tu Targ Staroci.",
-      "updated": "2026-07-04"
+      "updated": "2026-07-11"
     },
     {
       "id": "targowisko-grodzisk-mazowiecki",
@@ -129,7 +129,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Grodzisk Mazowiecki (grodzisk.pl)",
       "note": "W każdą trzecią niedzielę miesiąca odbywa się tu Targ Staroci.",
-      "updated": "2026-07-05"
+      "updated": "2026-07-11"
     },
     {
       "id": "targowisko-nadarzyn",
@@ -144,13 +144,13 @@
       "verified": true,
       "source": "Urząd Gminy Nadarzyn (nadarzyn.pl)",
       "note": "Główne targowisko gminne, największy ruch w godzinach porannych.",
-      "updated": "2026-07-05"
+      "updated": "2026-07-11"
     },
     {
       "id": "rynek-hurtowy-bronisze",
       "name": "Warszawski Rolno-Spożywczy Rynek Hurtowy Bronisze",
       "city": "Bronisze",
-      "address": "ul. Poznańska 98, Bronisze",
+      "address": "ul. Poznańska 98",
       "website": "https://bronisze.com.pl",
       "days": [
         "pn",
@@ -158,13 +158,14 @@
         "sr",
         "cz",
         "pt",
-        "so"
+        "so",
+        "nd"
       ],
-      "hours": "hurt: od wczesnych godzin porannych",
+      "hours": "hurt: całodobowo (z przerwą w soboty)",
       "verified": true,
-      "source": "Strona oficjalna Bronisze",
-      "note": "Rynek hurtowy — zakupy detaliczne możliwe, ale w dużych ilościach. Potencjalny partner strategiczny.",
-      "updated": "2026-07-02"
+      "source": "Oficjalna strona bronisze.com.pl",
+      "note": "Rynek hurtowy spożywczo-kwiatowy działający całodobowo. Zakupy detaliczne możliwe, ale głównie w ilościach hurtowych.",
+      "updated": "2026-07-07"
     },
     {
       "id": "bazarek-ursus-warszawa",
@@ -182,14 +183,14 @@
       "hours": "5:00–14:00 (wt–pt), 3:00–15:30 (so)",
       "verified": true,
       "source": "Urząd Dzielnicy Ursus m.st. Warszawy",
-      "note": "Główne targowisko dzielnicy Ursus przy ul. Gierdziejewskiego, potocznie nazywane targiem w Ursusie. Największy ruch w sobotę od wczesnych godzin rannych.",
-      "updated": "2026-07-05"
+      "note": "Główne targowisko dzielnicy Ursus przy ul. Gierdziejewskiego, potocznie nazywane targem w Ursusie. Największy ruch w sobotę od wczesnych godzin rannych.",
+      "updated": "2026-07-11"
     },
     {
       "id": "targowisko-bemowo-warszawa",
       "name": "Targowisko Bemowo",
       "city": "Warszawa (Bemowo)",
-      "address": "do ustalenia",
+      "address": "ul. Powstańców Śląskich paw. 49",
       "website": "",
       "days": [
         "pn",
@@ -199,11 +200,11 @@
         "pt",
         "so"
       ],
-      "hours": "",
-      "verified": false,
-      "source": "Do weryfikacji",
-      "note": "Dni handlowe orientacyjne — wymagają potwierdzenia.",
-      "updated": "2026-07-02"
+      "hours": "7:00–19:00 (pn–pt), 7:00–15:00 (so)",
+      "verified": true,
+      "source": "Portal TuStolica (informacje o targowisku TarBem)",
+      "note": "Popularne targowisko na Bemowie-Lotnisku (TarBem) rozciągające się wzdłuż ul. Powstańców Śląskich.",
+      "updated": "2026-07-17"
     },
     {
       "id": "targowisko-miejskie-milanowek",
@@ -221,9 +222,9 @@
       ],
       "hours": "6:00–18:00 (pn–pt), 5:00–14:00 (so)",
       "verified": true,
-      "source": "Regulamin Targowiska Miejskiego w Milanówku",
+      "source": "Uchwała Nr 111/IX/24 Rady Miasta Milanówka (milanowek.pl)",
       "note": "Czynne od poniedziałku do soboty, z największym ruchem w soboty. W wybrane niedziele odbywa się tu Wyprzedaż Garażowa i Targ Staroci.",
-      "updated": "2026-07-04"
+      "updated": "2026-07-10"
     },
     {
       "id": "targowisko-moj-rynek-brwinow",
@@ -238,7 +239,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Brwinów (brwinow.pl)",
       "note": "Nowoczesne zadaszone targowisko. Główny dzień handlowy to sobota. W ostatnią niedzielę miesiąca odbywa się tu Targ Przydasiów (pchli targ).",
-      "updated": "2026-07-05"
+      "updated": "2026-07-11"
     },
     {
       "id": "targowisko-miejskie-piaseczno",
@@ -255,7 +256,243 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Piaseczno (piaseczno.eu)",
       "note": "We wtorki i piątki tradycyjny handel rolniczy i spożywczy. W soboty odbywa się tu Pchli Targ „Z Bagażnika” oraz handel produktami lokalnymi.",
-      "updated": "2026-07-05"
+      "updated": "2026-07-11"
+    },
+    {
+      "id": "bazarek-wisla-lomianki",
+      "name": "Bazarek przy ul. Wiślanej w Łomiankach",
+      "city": "Łomianki",
+      "address": "ul. Wiślana (róg Fabrycznej)",
+      "website": "https://lomianki.pl",
+      "days": [
+        "so"
+      ],
+      "hours": "6:00–13:00",
+      "verified": true,
+      "source": "Oficjalny portal Gminy Łomianki (lomianki.pl) / Informacje lokalne",
+      "note": "Tradycyjny bazarek w sąsiedztwie ul. Fabrycznej i Wiślanej, najwięcej otwartych stoisk rano.",
+      "updated": "2026-07-18"
+    },
+    {
+      "id": "targowisko-miejskie-legionowo",
+      "name": "Targowisko Miejskie w Legionowie",
+      "city": "Legionowo",
+      "address": "ul. Jana III Sobieskiego (róg Wysockiego)",
+      "website": "https://kzb-legionowo.pl",
+      "days": [
+        "wt",
+        "cz",
+        "so"
+      ],
+      "hours": "04:00–18:00 (lato), 05:00–16:00 (zima)",
+      "verified": true,
+      "source": "Zarządca KZB Legionowo (kzb-legionowo.pl)",
+      "note": "Duże targowisko miejskie zarządzane przez KZB Legionowo. W każdą niedzielę w godzinach 8:00-14:00 odbywa się tu pchli targ (Rupieciarnia).",
+      "updated": "2026-07-18"
+    },
+    {
+      "id": "targowisko-miejskie-wolomin",
+      "name": "Targowisko Miejskie w Wołominie",
+      "city": "Wołomin",
+      "address": "ul. 1 Maja",
+      "website": "https://pk.wolomin.pl",
+      "days": [
+        "cz",
+        "so"
+      ],
+      "hours": "4:00–14:00",
+      "verified": true,
+      "source": "Przedsiębiorstwo Komunalne w Wołominie (pk.wolomin.pl)",
+      "note": "Główne targowisko miejskie. W wybrane niedziele odbywa się tu również Wołomińska Wyprzedaż Garażowa.",
+      "updated": "2026-07-18"
+    },
+    {
+      "id": "targowisko-miejskie-otwock",
+      "name": "Targowisko Miejskie w Otwocku",
+      "city": "Otwock",
+      "address": "ul. Batorego 32",
+      "website": "https://otwock.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so",
+        "nd"
+      ],
+      "hours": "5:00–15:00 (wt, pt, so, nd), 7:00–15:00 (pn, sr, cz)",
+      "verified": true,
+      "source": "Regulamin Targowiska Miejskiego w Otwocku (otwock.pl)",
+      "note": "Duży miejski bazar (Mój Rynek) przy ul. Batorego. Główne dni targowe z największym ruchem to wtorek, piątek i sobota.",
+      "updated": "2026-07-07"
+    },
+    {
+      "id": "bazar-olimpia-warszawa",
+      "name": "Bazar Olimpia",
+      "city": "Warszawa (Wola)",
+      "address": "ul. Górczewska 56/60",
+      "website": "https://www.facebook.com/targolimpia/",
+      "days": [
+        "nd"
+      ],
+      "hours": "6:00–15:00",
+      "verified": true,
+      "source": "Oficjalne raporty m.st. Warszawy (um.warszawa.pl) / informacje lokalne",
+      "note": "Jeden z najpopularniejszych i największych bazarów w Warszawie, działający na terenie stadionu WRKS Olimpia wyłącznie w niedziele.",
+      "updated": "2026-07-10"
+    },
+    {
+      "id": "bazar-na-walbrzyskiej-warszawa",
+      "name": "Bazar na Wałbrzyskiej",
+      "city": "Warszawa (Mokotów)",
+      "address": "ul. Wałbrzyska 48A",
+      "website": "",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so"
+      ],
+      "hours": "7:00–18:00 (pn–pt), 7:00–15:00 (so)",
+      "verified": true,
+      "source": "Zestawienia cen m.st. Warszawy (um.warszawa.pl) / Baza firm pkt.pl",
+      "note": "Popularne i duże targowisko na Mokotowie (Służew), położone tuż przy stacji Metra Służew.",
+      "updated": "2026-07-10"
+    },
+    {
+      "id": "targowisko-zieleniak-ochota",
+      "name": "Targowisko „Zieleniak” na Ochocie",
+      "city": "Warszawa (Ochota)",
+      "address": "ul. Grójecka 97",
+      "website": "https://ochota.um.warszawa.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so"
+      ],
+      "hours": "8:00–18:00 (pn–pt), 8:00–12:00 (so)",
+      "verified": true,
+      "source": "Urząd Dzielnicy Ochota m.st. Warszawy / Warszawa 19115",
+      "note": "Nowoczesna hala targowa Zieleniak zarządzana przez ZGN Ochota. Poza codziennym handlem spożywczo-przemysłowym, pod halą w wybrane niedziele (zazwyczaj ostatnia niedziela miesiąca w sezonie od kwietnia do listopada) odbywa się Ochocka Wyprzedaż Garażowa w godzinach 10:00–14:00.",
+      "updated": "2026-07-11"
+    },
+    {
+      "id": "bazarek-bakalarska-warszawa",
+      "name": "Bazarek przy ul. Bakalarskiej",
+      "city": "Warszawa (Włochy)",
+      "address": "ul. Bakalarska 11",
+      "website": "https://halabakalarska.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so",
+        "nd"
+      ],
+      "hours": "6:00–17:00",
+      "verified": true,
+      "source": "Oficjalna strona zarządcy halabakalarska.pl",
+      "note": "Klimatyczne, wielokulturowe targowisko z bogatą ofertą odzieży, kosmetyków oraz stoiskami z tradycyjną kuchnią azjatycką i afrykańską (Asian Town).",
+      "updated": "2026-07-11"
+    },
+    {
+      "id": "bazarek-na-dolku-ursynow-warszawa",
+      "name": "Bazarek na Dołku",
+      "city": "Warszawa (Ursynów)",
+      "address": "ul. Benedykta Polaka (róg ul. Płaskowickiej i al. KEN)",
+      "website": "https://www.facebook.com/bazareknadolku",
+      "days": [
+        "sr",
+        "so",
+        "nd"
+      ],
+      "hours": "6:00–15:00 (so, nd), 7:00–15:00 (sr)",
+      "verified": true,
+      "source": "Stowarzyszenie Kupców-Inwestorów Giełdy „Na Dołku” (facebook.com/bazareknadolku)",
+      "note": "Legendarny ursynowski bazarek przeniesiony czasowo na teren dawnej pętli autobusowej Natolin Północny. Największy ruch w soboty i niedziele od wczesnych godzin rannych.",
+      "updated": "2026-07-11"
+    },
+    {
+      "id": "targowisko-miejskie-zyrardow",
+      "name": "Targowisko Miejskie w Żyrardowie",
+      "city": "Żyrardów",
+      "address": "ul. Moniuszki 44/46",
+      "website": "https://www.zyrardow.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so",
+        "nd"
+      ],
+      "hours": "5:00–18:00 (pn, wt, cz), 4:00–18:00 (sr, pt, so), 6:00–16:00 (nd)",
+      "verified": true,
+      "source": "Regulamin zarządcy PGM Żyrardów / Portal zyrardow.pl",
+      "note": "Tradycyjne i duże targowisko miejskie czynne codziennie. Główne dni targowe z największym ruchem to środy, piątki i soboty. W niedziele odbywa się tu popularna giełda.",
+      "updated": "2026-07-11"
+    },
+    {
+      "id": "targowisko-miejskie-marki",
+      "name": "Mareckie Targowisko Miejskie",
+      "city": "Marki",
+      "address": "ul. Paderewskiego",
+      "website": "https://marki.pl",
+      "days": [
+        "wt",
+        "pt",
+        "so"
+      ],
+      "hours": "5:00–14:00",
+      "verified": true,
+      "source": "Regulamin wprowadzony Uchwałą nr XLIX/547/2022 Rady Miasta Marki",
+      "note": "Miejski plac targowy zarządzany przez Zakład Usług Komunalnych w Markach. Główne dni handlowe to wtorek, piątek i sobota.",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "targowisko-grapa-konstancin-jeziorna",
+      "name": "Targowisko Grapa w Konstancinie-Jeziornie",
+      "city": "Konstancin-Jeziorna",
+      "address": "al. Wojska Polskiego 28/30",
+      "website": "https://konstancinjeziorna.pl",
+      "days": [
+        "sr",
+        "so"
+      ],
+      "hours": "6:00–14:00",
+      "verified": true,
+      "source": "Oficjalny serwis gminy konstancinjeziorna.pl / Informacje lokalne",
+      "note": "Popularny, tradycyjny bazar na Grapie z bogatą ofertą świeżych warzyw, owoców i produktów od lokalnych rolników.",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "targowisko-miejskie-zabki",
+      "name": "Targowisko Miejskie w Ząbkach",
+      "city": "Ząbki",
+      "address": "ul. Targowa 3/6",
+      "website": "",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so"
+      ],
+      "hours": "6:00–18:00 (pn–pt), 6:00–14:00 (so)",
+      "verified": true,
+      "source": "zabki24.pl / targeo.pl",
+      "note": "Zadaszone targowisko. Największy ruch w sobotnie poranki.",
+      "updated": "2026-07-15"
     }
   ]
 }
