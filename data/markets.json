@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19",
+  "updated": "2026-07-20",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -77,7 +77,7 @@
       "verified": true,
       "source": "Portal Gminy Izabelin (izabelin.pl) / Profil na Facebooku",
       "note": "Inicjatywa sąsiedzka z bogatą ofertą lokalnych wystawców, zdrowej żywności i rękodzieła. Miejsce spotkań społeczności.",
-      "updated": "2026-07-10"
+      "updated": "2026-07-20"
     },
     {
       "id": "targowisko-ozarow-mazowiecki",
@@ -224,7 +224,7 @@
       "verified": true,
       "source": "Uchwała Nr 111/IX/24 Rady Miasta Milanówka (milanowek.pl)",
       "note": "Czynne od poniedziałku do soboty, z największym ruchem w soboty. W wybrane niedziele odbywa się tu Wyprzedaż Garażowa i Targ Staroci.",
-      "updated": "2026-07-10"
+      "updated": "2026-07-20"
     },
     {
       "id": "targowisko-moj-rynek-brwinow",
@@ -325,7 +325,7 @@
       "verified": true,
       "source": "Regulamin Targowiska Miejskiego w Otwocku (otwock.pl)",
       "note": "Duży miejski bazar (Mój Rynek) przy ul. Batorego. Główne dni targowe z największym ruchem to wtorek, piątek i sobota.",
-      "updated": "2026-07-07"
+      "updated": "2026-07-20"
     },
     {
       "id": "bazar-olimpia-warszawa",
