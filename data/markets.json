@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20",
+  "updated": "2026-07-21",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -113,7 +113,7 @@
       "verified": true,
       "source": "Oficjalna strona Gminy Błonie / ZUK Błonie",
       "note": "Zmodernizowane, wielofunkcyjne targowisko miejskie z pawilonami i płytą otwartą. W każdą drugą niedzielę miesiąca odbywa się tu Targ Staroci.",
-      "updated": "2026-07-11"
+      "updated": "2026-07-21"
     },
     {
       "id": "targowisko-grodzisk-mazowiecki",
@@ -129,7 +129,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Grodzisk Mazowiecki (grodzisk.pl)",
       "note": "W każdą trzecią niedzielę miesiąca odbywa się tu Targ Staroci.",
-      "updated": "2026-07-11"
+      "updated": "2026-07-21"
     },
     {
       "id": "targowisko-nadarzyn",
@@ -144,7 +144,7 @@
       "verified": true,
       "source": "Urząd Gminy Nadarzyn (nadarzyn.pl)",
       "note": "Główne targowisko gminne, największy ruch w godzinach porannych.",
-      "updated": "2026-07-11"
+      "updated": "2026-07-21"
     },
     {
       "id": "rynek-hurtowy-bronisze",
