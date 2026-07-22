@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21",
+  "updated": "2026-07-22",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -340,7 +340,7 @@
       "verified": true,
       "source": "Oficjalne raporty m.st. Warszawy (um.warszawa.pl) / informacje lokalne",
       "note": "Jeden z najpopularniejszych i największych bazarów w Warszawie, działający na terenie stadionu WRKS Olimpia wyłącznie w niedziele.",
-      "updated": "2026-07-10"
+      "updated": "2026-07-22"
     },
     {
       "id": "bazar-na-walbrzyskiej-warszawa",
@@ -356,11 +356,11 @@
         "pt",
         "so"
       ],
-      "hours": "7:00–18:00 (pn–pt), 7:00–15:00 (so)",
+      "hours": "8:30–16:00 (pn–pt), 9:00–15:00 (so)",
       "verified": true,
       "source": "Zestawienia cen m.st. Warszawy (um.warszawa.pl) / Baza firm pkt.pl",
       "note": "Popularne i duże targowisko na Mokotowie (Służew), położone tuż przy stacji Metra Służew.",
-      "updated": "2026-07-10"
+      "updated": "2026-07-22"
     },
     {
       "id": "targowisko-zieleniak-ochota",
@@ -376,11 +376,11 @@
         "pt",
         "so"
       ],
-      "hours": "8:00–18:00 (pn–pt), 8:00–12:00 (so)",
+      "hours": "6:00–19:00 (pn–pt), 7:30–20:00 (so)",
       "verified": true,
       "source": "Urząd Dzielnicy Ochota m.st. Warszawy / Warszawa 19115",
       "note": "Nowoczesna hala targowa Zieleniak zarządzana przez ZGN Ochota. Poza codziennym handlem spożywczo-przemysłowym, pod halą w wybrane niedziele (zazwyczaj ostatnia niedziela miesiąca w sezonie od kwietnia do listopada) odbywa się Ochocka Wyprzedaż Garażowa w godzinach 10:00–14:00.",
-      "updated": "2026-07-11"
+      "updated": "2026-07-22"
     },
     {
       "id": "bazarek-bakalarska-warszawa",
