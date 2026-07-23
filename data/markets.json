@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22",
+  "updated": "2026-07-23",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -184,7 +184,7 @@
       "verified": true,
       "source": "Urząd Dzielnicy Ursus m.st. Warszawy",
       "note": "Główne targowisko dzielnicy Ursus przy ul. Gierdziejewskiego, potocznie nazywane targem w Ursusie. Największy ruch w sobotę od wczesnych godzin rannych.",
-      "updated": "2026-07-11"
+      "updated": "2026-07-23"
     },
     {
       "id": "targowisko-bemowo-warszawa",
@@ -239,7 +239,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Brwinów (brwinow.pl)",
       "note": "Nowoczesne zadaszone targowisko. Główny dzień handlowy to sobota. W ostatnią niedzielę miesiąca odbywa się tu Targ Przydasiów (pchli targ).",
-      "updated": "2026-07-11"
+      "updated": "2026-07-23"
     },
     {
       "id": "targowisko-miejskie-piaseczno",
@@ -256,7 +256,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Piaseczno (piaseczno.eu)",
       "note": "We wtorki i piątki tradycyjny handel rolniczy i spożywczy. W soboty odbywa się tu Pchli Targ „Z Bagażnika” oraz handel produktami lokalnymi.",
-      "updated": "2026-07-11"
+      "updated": "2026-07-23"
     },
     {
       "id": "bazarek-wisla-lomianki",
