@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-23",
+  "updated": "2026-07-24",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -401,7 +401,7 @@
       "verified": true,
       "source": "Oficjalna strona zarządcy halabakalarska.pl",
       "note": "Klimatyczne, wielokulturowe targowisko z bogatą ofertą odzieży, kosmetyków oraz stoiskami z tradycyjną kuchnią azjatycką i afrykańską (Asian Town).",
-      "updated": "2026-07-11"
+      "updated": "2026-07-24"
     },
     {
       "id": "bazarek-na-dolku-ursynow-warszawa",
@@ -418,7 +418,7 @@
       "verified": true,
       "source": "Stowarzyszenie Kupców-Inwestorów Giełdy „Na Dołku” (facebook.com/bazareknadolku)",
       "note": "Legendarny ursynowski bazarek przeniesiony czasowo na teren dawnej pętli autobusowej Natolin Północny. Największy ruch w soboty i niedziele od wczesnych godzin rannych.",
-      "updated": "2026-07-11"
+      "updated": "2026-07-24"
     },
     {
       "id": "targowisko-miejskie-zyrardow",
@@ -439,7 +439,7 @@
       "verified": true,
       "source": "Regulamin zarządcy PGM Żyrardów / Portal zyrardow.pl",
       "note": "Tradycyjne i duże targowisko miejskie czynne codziennie. Główne dni targowe z największym ruchem to środy, piątki i soboty. W niedziele odbywa się tu popularna giełda.",
-      "updated": "2026-07-11"
+      "updated": "2026-07-24"
     },
     {
       "id": "targowisko-miejskie-marki",
@@ -471,7 +471,7 @@
       "hours": "6:00–14:00",
       "verified": true,
       "source": "Oficjalny serwis gminy konstancinjeziorna.pl / Informacje lokalne",
-      "note": "Popularny, tradycyjny bazar na Grapie z bogatą ofertą świeżych warzyw, owoców i produktów od lokalnych rolników.",
+      "note": "Popularny, tradycyjny bazar na Grapa z bogatą ofertą świeżych warzyw, owoców i produktów od lokalnych rolników.",
       "updated": "2026-07-12"
     },
     {
@@ -493,6 +493,27 @@
       "source": "zabki24.pl / targeo.pl",
       "note": "Zadaszone targowisko. Największy ruch w sobotnie poranki.",
       "updated": "2026-07-15"
+    },
+    {
+      "id": "targowisko-miejskie-nowy-dwor-mazowiecki",
+      "name": "Targowisko Miejskie Nr 1 „Mój Rynek” w Nowym Dworze Mazowieckim",
+      "city": "Nowy Dwór Mazowiecki",
+      "address": "ul. Targowa 11",
+      "website": "https://nowydwormaz.pl",
+      "days": [
+        "pn",
+        "wt",
+        "sr",
+        "cz",
+        "pt",
+        "so",
+        "nd"
+      ],
+      "hours": "5:00–14:00 (śr, pt), 5:00–15:00 (so), 8:00–13:00 (nd), 7:00–15:00 (pn, wt, cz)",
+      "verified": true,
+      "source": "Oficjalny portal miasta (nowydwormaz.pl)",
+      "note": "Główne targowisko miejskie. Niedziele są tradycyjnie poświęcone sprzedaży staroci i antyków.",
+      "updated": "2026-07-24"
     }
   ]
 }
