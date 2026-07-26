@@ -1,6 +1,7 @@
-# Codzienny dashboard: statystyki ruchu (GoatCounter) + stan bazy danych.
-# Wynik: docs/DASHBOARD.md — czytelny z aplikacji GitHub na telefonie.
-# Opcjonalne sekrety: GOATCOUNTER_TOKEN (Settings → Secrets → Actions).
+# Codzienny dashboard: statystyki ruchu (GoatCounter) + stan bazy danych → docs/DASHBOARD.md.
+# Dead-man's switch analityki: gdy token GoatCounter przestaje działać, otwiera Issue z
+# etykietą `alert` (i sam zamyka, gdy licznik wróci) — żeby ślepota na ruch nie była cicha.
+# Sekrety: GOATCOUNTER_TOKEN, BUTTONDOWN_API_KEY (opcjonalne).
 
 name: Daily Dashboard
 
@@ -11,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   dashboard:
@@ -21,8 +23,9 @@ jobs:
           ref: main
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - name: Zaktualizuj dashboard
+        id: dash
         env:
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
@@ -34,3 +37,34 @@ jobs:
           git add docs/DASHBOARD.md
           git diff --cached --quiet || git commit -m "dashboard: aktualizacja $(date -u +%F)"
           git push
+      - name: Alert analityki / auto-resolve
+        if: steps.dash.outputs.analytics_status == 'broken' || steps.dash.outputs.analytics_status == 'ok'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          STATUS: ${{ steps.dash.outputs.analytics_status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh label create alert --repo "$REPO" --color B60205 --description "Automatyczny alert niezawodności" 2>/dev/null || true
+          TITLE="⚠️ Analityka GoatCounter nie zbiera danych"
+          existing=$(gh issue list --repo "$REPO" --label alert --state open --json number,title \
+            --jq '[.[] | select(.title | contains("Analityka GoatCounter"))][0].number // empty')
+
+          if [ "$STATUS" = "broken" ]; then
+            echo "::warning::Analityka nie działa — zgłaszam alert."
+            if [ -n "$existing" ]; then
+              gh issue comment "$existing" --repo "$REPO" --body "Nadal brak danych z GoatCountera: $(date -u +%F) · ${RUN_URL}"
+            else
+              printf '%s\n\n%s\n\n%s\n\n%s' \
+                "Dashboard nie może pobrać statystyk z GoatCountera — jesteśmy ślepi na ruch (odsłony, CTR Przycisku-Widmo)." \
+                "Najczęstsza przyczyna: token wygasł/został skasowany lub nie ma uprawnienia „Read statistics”. Napraw: [Settings → API](https://gdzietarg.goatcounter.com/user/api) → nowy token → zaktualizuj sekret GOATCOUNTER_TOKEN." \
+                "Szczegóły błędu (HTTP) są w sekcji „Ruch na stronie” w docs/DASHBOARD.md." \
+                "Ten alert zamknie się sam, gdy licznik znów zacznie zwracać dane. Przebieg: ${RUN_URL}" \
+                | gh issue create --repo "$REPO" --label alert --title "$TITLE" --body-file -
+            fi
+          else
+            if [ -n "$existing" ]; then
+              gh issue close "$existing" --repo "$REPO" --comment "✅ Analityka znów zbiera dane ($(date -u +%F)). Alert zamknięty automatycznie."
+            fi
+            echo "Analityka OK — brak alertu."
+          fi

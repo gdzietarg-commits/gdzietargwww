@@ -43,6 +43,9 @@ if (markets.length - verified.length > 0) {
 
 // --- Ruch (GoatCounter API) ---
 let trafficSection = `## 📈 Ruch na stronie\n\n`;
+// "unconfigured" = brak tokenu (stan oczekiwany); "broken" = token jest, ale API nie działa
+// (to alarmujemy); "ok" = pobrano statystyki.
+let analyticsStatus = "unconfigured";
 const token = process.env.GOATCOUNTER_TOKEN;
 
 if (!token || !config.goatcounter) {
@@ -55,6 +58,7 @@ if (!token || !config.goatcounter) {
   const headers = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
   const EVENT_PREFIXES = ["eko/", "zapis/", "filter/", "share/"];
   const isEvent = (p) => EVENT_PREFIXES.some((pre) => (p || "").startsWith(pre));
+  analyticsStatus = "broken"; // domyślnie, dopóki nie pobierzemy danych
   try {
     // Preflight: /api/v0/me potwierdza, czy token w ogóle działa (niezależnie od uprawnień do statystyk).
     const meRes = await fetch(`${base}/me`, { headers });
@@ -111,6 +115,7 @@ if (!token || !config.goatcounter) {
       trafficSection += `- Zapisy e-mail: **${signupTotal}**\n`;
       if (totalViews > 0) trafficSection += `- CTR przycisku: **${((ekoTotal / totalViews) * 100).toFixed(1)}%** (próg sukcesu: 8%)\n`;
       trafficSection += `\nPełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://${config.goatcounter}.goatcounter.com)\n\n`;
+      analyticsStatus = "ok"; // pobrano i wyświetlono statystyki
     } else if (meRes.ok && hitsRes.ok) {
       trafficSection += `> Odpowiedź GoatCounter miała nieoczekiwany kształt (brak pola \`hits\`). Endpoint: \`/api/v0/stats/hits\`.\n\n`;
     }
@@ -153,4 +158,10 @@ ${trafficSection}${newsletterSection}${dataSection}## 🔗 Szybkie linki
 `;
 
 writeFileSync(join(ROOT, "docs/DASHBOARD.md"), md);
-console.log("✅ docs/DASHBOARD.md zaktualizowany");
+console.log(`✅ docs/DASHBOARD.md zaktualizowany (analityka: ${analyticsStatus})`);
+
+// Sygnał dla workflow (dead-man's switch analityki): ok | broken | unconfigured
+if (process.env.GITHUB_OUTPUT) {
+  const { appendFileSync } = await import("node:fs");
+  appendFileSync(process.env.GITHUB_OUTPUT, `analytics_status=${analyticsStatus}\n`);
+}
