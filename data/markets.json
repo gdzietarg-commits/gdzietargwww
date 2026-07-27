@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-26",
+  "updated": "2026-07-27",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -43,11 +43,11 @@
         "sr",
         "so"
       ],
-      "hours": "6:00–13:00",
+      "hours": "8:00–13:00",
       "verified": true,
       "source": "Portal piastow.pl / Regulamin Targowiska Miejskiego",
       "note": "Zmodernizowane targowisko miejskie z wyznaczonymi miejscami parkingowymi.",
-      "updated": "2026-07-12"
+      "updated": "2026-07-27"
     },
     {
       "id": "targ-na-rynku-stare-babice",
@@ -492,7 +492,7 @@
       "verified": true,
       "source": "zabki24.pl / targeo.pl",
       "note": "Zadaszone targowisko. Największy ruch w sobotnie poranki.",
-      "updated": "2026-07-15"
+      "updated": "2026-07-27"
     },
     {
       "id": "targowisko-miejskie-nowy-dwor-mazowiecki",
