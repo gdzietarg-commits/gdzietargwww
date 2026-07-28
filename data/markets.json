@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-27",
+  "updated": "2026-07-28",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -93,7 +93,7 @@
       "verified": true,
       "source": "Uchwała Nr LXXIV/683/23 Rady Miejskiej w Ożarowie Mazowieckim",
       "note": "Tradycyjne targowisko miejskie przy ul. Strażackiej zarządzane przez ZUK. Największy ruch w godzinach porannych.",
-      "updated": "2026-07-12"
+      "updated": "2026-07-28"
     },
     {
       "id": "targowisko-blonie",
@@ -204,7 +204,7 @@
       "verified": true,
       "source": "Portal TuStolica (informacje o targowisku TarBem)",
       "note": "Popularne targowisko na Bemowie-Lotnisku (TarBem) rozciągające się wzdłuż ul. Powstańców Śląskich.",
-      "updated": "2026-07-17"
+      "updated": "2026-07-28"
     },
     {
       "id": "targowisko-miejskie-milanowek",
@@ -271,7 +271,7 @@
       "verified": true,
       "source": "Oficjalny portal Gminy Łomianki (lomianki.pl) / Informacje lokalne",
       "note": "Tradycyjny bazarek w sąsiedztwie ul. Fabrycznej i Wiślanej, najwięcej otwartych stoisk rano.",
-      "updated": "2026-07-18"
+      "updated": "2026-07-28"
     },
     {
       "id": "targowisko-miejskie-legionowo",
