@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-28",
+  "updated": "2026-07-30",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -31,7 +31,7 @@
       "verified": true,
       "source": "Oficjalna strona targowisko.pruszkow.pl",
       "note": "Mniejszy bazar osiedlowy w dzielnicy Żbików. Obiekt przeszedł modernizację.",
-      "updated": "2026-07-19"
+      "updated": "2026-07-30"
     },
     {
       "id": "targowisko-piastow",
@@ -288,7 +288,7 @@
       "verified": true,
       "source": "Zarządca KZB Legionowo (kzb-legionowo.pl)",
       "note": "Duże targowisko miejskie zarządzane przez KZB Legionowo. W każdą niedzielę w godzinach 8:00-14:00 odbywa się tu pchli targ (Rupieciarnia).",
-      "updated": "2026-07-18"
+      "updated": "2026-07-30"
     },
     {
       "id": "targowisko-miejskie-wolomin",
@@ -304,7 +304,7 @@
       "verified": true,
       "source": "Przedsiębiorstwo Komunalne w Wołominie (pk.wolomin.pl)",
       "note": "Główne targowisko miejskie. W wybrane niedziele odbywa się tu również Wołomińska Wyprzedaż Garażowa.",
-      "updated": "2026-07-18"
+      "updated": "2026-07-30"
     },
     {
       "id": "targowisko-miejskie-otwock",
