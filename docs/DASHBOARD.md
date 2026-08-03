@@ -1,12 +1,42 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-08-02**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-08-03**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
 
-> ❌ Token GoatCounter nie działa: `GET /api/v0/me` → HTTP 404.
-> Token jest nieprawidłowy lub dotyczy innej witryny. Wygeneruj nowy w [Settings → API](https://gdzietarg.goatcounter.com/user/api) i zaktualizuj sekret `GOATCOUNTER_TOKEN`.
+**Odsłony w ostatnich 14 dniach: 3**
+
+| Data | Odsłony | Wykres |
+|---|---:|---|
+| 2026-07-20 | 3 | ██████████████████ |
+| 2026-07-21 | 0 | · |
+| 2026-07-22 | 0 | · |
+| 2026-07-23 | 0 | · |
+| 2026-07-24 | 0 | · |
+| 2026-07-25 | 0 | · |
+| 2026-07-26 | 0 | · |
+| 2026-07-27 | 0 | · |
+| 2026-07-28 | 0 | · |
+| 2026-07-29 | 0 | · |
+| 2026-07-30 | 0 | · |
+| 2026-07-31 | 0 | · |
+| 2026-08-01 | 0 | · |
+| 2026-08-02 | 0 | · |
+| 2026-08-03 | 0 | · |
+
+### Najpopularniejsze strony i zdarzenia (14 dni)
+
+| Ścieżka | Odsłony |
+|---|---:|
+| `/index.html` | 3 |
+
+### 🌿 Walidacja Przycisku-Widmo (14 dni)
+- Kliknięcia „Eko-Weryfikacja": **0**
+- Zapisy e-mail: **0**
+- CTR przycisku: **0.0%** (próg sukcesu: 8%)
+
+Pełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://gdzietarg.goatcounter.com)
 
 ## 📬 Newsletter
 
@@ -16,11 +46,11 @@
 
 | Metryka | Wartość |
 |---|---|
-| Targowiska w bazie | **29** |
-| Zweryfikowane | 29 (100%) |
+| Targowiska w bazie | **30** |
+| Zweryfikowane | 30 (100%) |
 | Do potwierdzenia | 0 |
 | Starsze niż 14 dni | 0 |
-| Miasta/gminy | 28 |
+| Miasta/gminy | 29 |
 
 ## 🔗 Szybkie linki
 
