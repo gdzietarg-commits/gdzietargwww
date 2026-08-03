@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-01",
+  "updated": "2026-08-03",
   "markets": [
     {
       "id": "targowisko-miejskie-pruszkow",
@@ -514,7 +514,24 @@
       "source": "Oficjalny portal miasta (nowydwormaz.pl)",
       "note": "Główne targowisko miejskie. Niedziele są tradycyjnie poświęcone sprzedaży staroci i antyków.",
       "updated": "2026-07-24"
+    },
+    {
+      "id": "targowisko-miejskie-gora-kalwaria",
+      "name": "Targowisko Miejskie w Górze Kalwarii",
+      "city": "Góra Kalwaria",
+      "address": "ul. Mariańska",
+      "website": "https://gorakalwaria.pl",
+      "days": [
+        "cz",
+        "pt"
+      ],
+      "hours": "8:00–19:00 (cz), 5:00–15:00 (pt)",
+      "verified": true,
+      "source": "https://gorakalwaria.pl",
+      "note": "W trakcie modernizacji (do grudnia 2026). Handel odbywa się bez przerw, ale stoiska są zgrupowane tymczasowo po jednej stronie ulicy.",
+      "updated": "2026-08-03"
     }
   ]
 }
+
 
