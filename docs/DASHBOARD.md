@@ -1,6 +1,6 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-08-12**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-08-13**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
@@ -19,7 +19,7 @@
 | Targowiska w bazie | **30** |
 | Zweryfikowane | 30 (100%) |
 | Do potwierdzenia | 0 |
-| Starsze niż 14 dni | 21 |
+| Starsze niż 14 dni | 24 |
 | Miasta/gminy | 29 |
 
 ## 🔗 Szybkie linki
