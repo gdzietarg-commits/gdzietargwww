@@ -1,12 +1,44 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-08-31**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-09-01**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
 
-> ❌ Token GoatCounter nie działa: `GET /api/v0/me` → HTTP 404.
-> Token jest nieprawidłowy lub dotyczy innej witryny. Wygeneruj nowy w [Settings → API](https://gdzietarg.goatcounter.com/user/api) i zaktualizuj sekret `GOATCOUNTER_TOKEN`.
+**Odsłony w ostatnich 14 dniach: 5**
+
+| Data | Odsłony | Wykres |
+|---|---:|---|
+| 2026-08-18 | 1 | █████ |
+| 2026-08-19 | 0 | · |
+| 2026-08-20 | 0 | · |
+| 2026-08-21 | 0 | · |
+| 2026-08-22 | 0 | · |
+| 2026-08-23 | 0 | · |
+| 2026-08-24 | 0 | · |
+| 2026-08-25 | 0 | · |
+| 2026-08-26 | 0 | · |
+| 2026-08-27 | 0 | · |
+| 2026-08-28 | 0 | · |
+| 2026-08-29 | 0 | · |
+| 2026-08-30 | 0 | · |
+| 2026-08-31 | 4 | ██████████████████ |
+| 2026-09-01 | 0 | · |
+
+### Najpopularniejsze strony i zdarzenia (14 dni)
+
+| Ścieżka | Odsłony |
+|---|---:|
+| `/warszawa-wola.html` | 3 |
+| `/targowisko-grapa-konstancin-jeziorna.html` | 1 |
+| `/index.html` | 1 |
+
+### 🌿 Walidacja Przycisku-Widmo (14 dni)
+- Kliknięcia „Eko-Weryfikacja": **0**
+- Zapisy e-mail: **0**
+- CTR przycisku: **0.0%** (próg sukcesu: 8%)
+
+Pełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://gdzietarg.goatcounter.com)
 
 ## 📬 Newsletter
 
