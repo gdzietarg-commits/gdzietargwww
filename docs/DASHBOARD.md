@@ -1,12 +1,49 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-09-14**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-09-15**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
 
-> ❌ Token GoatCounter nie działa: `GET /api/v0/me` → HTTP 404.
-> Token jest nieprawidłowy lub dotyczy innej witryny. Wygeneruj nowy w [Settings → API](https://gdzietarg.goatcounter.com/user/api) i zaktualizuj sekret `GOATCOUNTER_TOKEN`.
+**Odsłony w ostatnich 14 dniach: 9**
+
+| Data | Odsłony | Wykres |
+|---|---:|---|
+| 2026-09-01 | 0 | · |
+| 2026-09-02 | 4 | ██████████████████ |
+| 2026-09-03 | 0 | · |
+| 2026-09-04 | 0 | · |
+| 2026-09-05 | 0 | · |
+| 2026-09-06 | 0 | · |
+| 2026-09-07 | 0 | · |
+| 2026-09-08 | 0 | · |
+| 2026-09-09 | 1 | █████ |
+| 2026-09-10 | 0 | · |
+| 2026-09-11 | 0 | · |
+| 2026-09-12 | 2 | █████████ |
+| 2026-09-13 | 0 | · |
+| 2026-09-14 | 2 | █████████ |
+| 2026-09-15 | 0 | · |
+
+### Najpopularniejsze strony i zdarzenia (14 dni)
+
+| Ścieżka | Odsłony |
+|---|---:|
+| `/index.html` | 3 |
+| `/warszawa-ursynow.html` | 1 |
+| `/targowisko-blonie.html` | 1 |
+| `/blonie.html` | 1 |
+| `filter/dzien-sr` | 1 |
+| `/targowisko-miejskie-wolomin.html` | 1 |
+| `/targowisko-moj-rynek-brwinow.html` | 1 |
+| `/mapa.html` | 1 |
+
+### 🌿 Walidacja Przycisku-Widmo (14 dni)
+- Kliknięcia „Eko-Weryfikacja": **0**
+- Zapisy e-mail: **0**
+- CTR przycisku: **0.0%** (próg sukcesu: 8%)
+
+Pełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://gdzietarg.goatcounter.com)
 
 ## 📬 Newsletter
 
