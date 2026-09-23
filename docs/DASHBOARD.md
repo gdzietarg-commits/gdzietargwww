@@ -1,49 +1,12 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-09-22**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-09-23**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
 
-**Odsłony w ostatnich 14 dniach: 8**
-
-| Data | Odsłony | Wykres |
-|---|---:|---|
-| 2026-09-08 | 0 | · |
-| 2026-09-09 | 1 | █████████ |
-| 2026-09-10 | 0 | · |
-| 2026-09-11 | 0 | · |
-| 2026-09-12 | 2 | ██████████████████ |
-| 2026-09-13 | 0 | · |
-| 2026-09-14 | 2 | ██████████████████ |
-| 2026-09-15 | 1 | █████████ |
-| 2026-09-16 | 0 | · |
-| 2026-09-17 | 0 | · |
-| 2026-09-18 | 1 | █████████ |
-| 2026-09-19 | 1 | █████████ |
-| 2026-09-20 | 0 | · |
-| 2026-09-21 | 0 | · |
-| 2026-09-22 | 0 | · |
-
-### Najpopularniejsze strony i zdarzenia (14 dni)
-
-| Ścieżka | Odsłony |
-|---|---:|
-| `/index.html` | 2 |
-| `/bazar-olimpia-warszawa.html` | 1 |
-| `/targowisko-ozarow-mazowiecki.html` | 1 |
-| `/targowisko-miejskie-legionowo.html` | 1 |
-| `/warszawa-ursynow.html` | 1 |
-| `/targowisko-blonie.html` | 1 |
-| `/blonie.html` | 1 |
-| `filter/dzien-sr` | 1 |
-
-### 🌿 Walidacja Przycisku-Widmo (14 dni)
-- Kliknięcia „Eko-Weryfikacja": **0**
-- Zapisy e-mail: **0**
-- CTR przycisku: **0.0%** (próg sukcesu: 8%)
-
-Pełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://gdzietarg.goatcounter.com)
+> ❌ Token GoatCounter nie działa: `GET /api/v0/me` → HTTP 404.
+> Token jest nieprawidłowy lub dotyczy innej witryny. Wygeneruj nowy w [Settings → API](https://gdzietarg.goatcounter.com/user/api) i zaktualizuj sekret `GOATCOUNTER_TOKEN`.
 
 ## 📬 Newsletter
 
