@@ -1,12 +1,45 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-10-12**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-10-13**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
 
-> ❌ Token GoatCounter nie działa: `GET /api/v0/me` → HTTP 404.
-> Token jest nieprawidłowy lub dotyczy innej witryny. Wygeneruj nowy w [Settings → API](https://gdzietarg.goatcounter.com/user/api) i zaktualizuj sekret `GOATCOUNTER_TOKEN`.
+**Odsłony w ostatnich 14 dniach: 3**
+
+| Data | Odsłony | Wykres |
+|---|---:|---|
+| 2026-09-29 | 0 | · |
+| 2026-09-30 | 1 | ██████████████████ |
+| 2026-10-01 | 0 | · |
+| 2026-10-02 | 0 | · |
+| 2026-10-03 | 1 | ██████████████████ |
+| 2026-10-04 | 0 | · |
+| 2026-10-05 | 0 | · |
+| 2026-10-06 | 1 | ██████████████████ |
+| 2026-10-07 | 0 | · |
+| 2026-10-08 | 0 | · |
+| 2026-10-09 | 0 | · |
+| 2026-10-10 | 0 | · |
+| 2026-10-11 | 0 | · |
+| 2026-10-12 | 0 | · |
+| 2026-10-13 | 0 | · |
+
+### Najpopularniejsze strony i zdarzenia (14 dni)
+
+| Ścieżka | Odsłony |
+|---|---:|
+| `eko/targowisko-miejskie-legionowo` | 1 |
+| `/legionowo.html` | 1 |
+| `/targowisko-ozarow-mazowiecki.html` | 1 |
+| `/index.html` | 1 |
+
+### 🌿 Walidacja Przycisku-Widmo (14 dni)
+- Kliknięcia „Eko-Weryfikacja": **1**
+- Zapisy e-mail: **0**
+- CTR przycisku: **33.3%** (próg sukcesu: 8%)
+
+Pełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://gdzietarg.goatcounter.com)
 
 ## 📬 Newsletter
 
