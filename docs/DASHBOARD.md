@@ -1,12 +1,44 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-11-02**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-11-03**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
 
-> ❌ Token GoatCounter nie działa: `GET /api/v0/me` → HTTP 404.
-> Token jest nieprawidłowy lub dotyczy innej witryny. Wygeneruj nowy w [Settings → API](https://gdzietarg.goatcounter.com/user/api) i zaktualizuj sekret `GOATCOUNTER_TOKEN`.
+**Odsłony w ostatnich 14 dniach: 3**
+
+| Data | Odsłony | Wykres |
+|---|---:|---|
+| 2026-10-20 | 0 | · |
+| 2026-10-21 | 0 | · |
+| 2026-10-22 | 0 | · |
+| 2026-10-23 | 0 | · |
+| 2026-10-24 | 0 | · |
+| 2026-10-25 | 0 | · |
+| 2026-10-26 | 0 | · |
+| 2026-10-27 | 0 | · |
+| 2026-10-28 | 0 | · |
+| 2026-10-29 | 0 | · |
+| 2026-10-30 | 0 | · |
+| 2026-10-31 | 3 | ██████████████████ |
+| 2026-11-01 | 0 | · |
+| 2026-11-02 | 0 | · |
+| 2026-11-03 | 0 | · |
+
+### Najpopularniejsze strony i zdarzenia (14 dni)
+
+| Ścieżka | Odsłony |
+|---|---:|
+| `/bazar-olimpia-warszawa.html` | 2 |
+| `eko/bazar-olimpia-warszawa` | 1 |
+| `/index.html` | 1 |
+
+### 🌿 Walidacja Przycisku-Widmo (14 dni)
+- Kliknięcia „Eko-Weryfikacja": **1**
+- Zapisy e-mail: **0**
+- CTR przycisku: **33.3%** (próg sukcesu: 8%)
+
+Pełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://gdzietarg.goatcounter.com)
 
 ## 📬 Newsletter
 
