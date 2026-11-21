@@ -1,43 +1,12 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-11-20**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-11-21**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
 
-**Odsłony w ostatnich 14 dniach: 3**
-
-| Data | Odsłony | Wykres |
-|---|---:|---|
-| 2026-11-06 | 0 | · |
-| 2026-11-07 | 0 | · |
-| 2026-11-08 | 0 | · |
-| 2026-11-09 | 0 | · |
-| 2026-11-10 | 0 | · |
-| 2026-11-11 | 1 | █████████ |
-| 2026-11-12 | 0 | · |
-| 2026-11-13 | 0 | · |
-| 2026-11-14 | 0 | · |
-| 2026-11-15 | 0 | · |
-| 2026-11-16 | 0 | · |
-| 2026-11-17 | 2 | ██████████████████ |
-| 2026-11-18 | 0 | · |
-| 2026-11-19 | 0 | · |
-| 2026-11-20 | 0 | · |
-
-### Najpopularniejsze strony i zdarzenia (14 dni)
-
-| Ścieżka | Odsłony |
-|---|---:|
-| `/index.html` | 2 |
-| `/targowisko-zieleniak-ochota.html` | 1 |
-
-### 🌿 Walidacja Przycisku-Widmo (14 dni)
-- Kliknięcia „Eko-Weryfikacja": **0**
-- Zapisy e-mail: **0**
-- CTR przycisku: **0.0%** (próg sukcesu: 8%)
-
-Pełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://gdzietarg.goatcounter.com)
+> ❌ Token GoatCounter nie działa: `GET /api/v0/me` → HTTP 404.
+> Token jest nieprawidłowy lub dotyczy innej witryny. Wygeneruj nowy w [Settings → API](https://gdzietarg.goatcounter.com/user/api) i zaktualizuj sekret `GOATCOUNTER_TOKEN`.
 
 ## 📬 Newsletter
 
