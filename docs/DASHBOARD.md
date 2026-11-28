@@ -1,12 +1,43 @@
 # 📊 GdzieTarg.pl — Dashboard
 
-> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-11-27**.
+> Aktualizowany automatycznie codziennie ~04:45 UTC. Ostatnia aktualizacja: **2026-11-28**.
 > Czytaj z telefonu: aplikacja GitHub → repo → `docs/DASHBOARD.md`.
 
 ## 📈 Ruch na stronie
 
-> ❌ Token GoatCounter nie działa: `GET /api/v0/me` → HTTP 404.
-> Token jest nieprawidłowy lub dotyczy innej witryny. Wygeneruj nowy w [Settings → API](https://gdzietarg.goatcounter.com/user/api) i zaktualizuj sekret `GOATCOUNTER_TOKEN`.
+**Odsłony w ostatnich 14 dniach: 2**
+
+| Data | Odsłony | Wykres |
+|---|---:|---|
+| 2026-11-14 | 0 | · |
+| 2026-11-15 | 0 | · |
+| 2026-11-16 | 0 | · |
+| 2026-11-17 | 2 | ██████████████████ |
+| 2026-11-18 | 0 | · |
+| 2026-11-19 | 0 | · |
+| 2026-11-20 | 0 | · |
+| 2026-11-21 | 0 | · |
+| 2026-11-22 | 0 | · |
+| 2026-11-23 | 0 | · |
+| 2026-11-24 | 0 | · |
+| 2026-11-25 | 0 | · |
+| 2026-11-26 | 0 | · |
+| 2026-11-27 | 0 | · |
+| 2026-11-28 | 0 | · |
+
+### Najpopularniejsze strony i zdarzenia (14 dni)
+
+| Ścieżka | Odsłony |
+|---|---:|
+| `/targowisko-zieleniak-ochota.html` | 1 |
+| `/index.html` | 1 |
+
+### 🌿 Walidacja Przycisku-Widmo (14 dni)
+- Kliknięcia „Eko-Weryfikacja": **0**
+- Zapisy e-mail: **0**
+- CTR przycisku: **0.0%** (próg sukcesu: 8%)
+
+Pełne, interaktywne wykresy: [gdzietarg.goatcounter.com](https://gdzietarg.goatcounter.com)
 
 ## 📬 Newsletter
 
